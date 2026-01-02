@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-// import { posts } from "../assets/mockPost";
+import { Link } from "react-router-dom";
 
 export function PostList() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-
     async function fetchPosts() {
       try {
         const res = await fetch("http://localhost:3000/api/posts");
@@ -28,10 +27,14 @@ export function PostList() {
   return (
     <div className="posts-container">
       {posts.map((element, index) => (
+
         <div className="post" key={index}>
-          <div className="post-title">{element.title}</div>
+          <Link to="/post" className="post-link">
+            <div className="post-title">{element.title}</div>
+          </Link>
           <div className="post-content">{element.content}</div>
         </div>
+
       ))}
     </div>
   );

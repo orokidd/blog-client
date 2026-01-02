@@ -1,7 +1,7 @@
 import siteLogo from '../../assets/site-icon.jpeg'
 
 export function Header() {
-  const user = "test";
+  const user = null;
 
   return (
     <header className="header">
@@ -12,7 +12,7 @@ export function Header() {
       </div>
 
       <div className="header-options">
-        {user ? <div className="logout"></div> : <div className="Login"></div>}
+        {user ? <div className="logout">Logout</div> : <div className="Login">Login</div>}
         </div>
     </header>
   );

@@ -1,16 +1,16 @@
-export const blogs = [
+export const posts = [
   {
-    title: "Blog 1",
+    title: "Post 1",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia repellat modi recusandae voluptatum deserunt earum rem nostrum eum a quam maxime adipisci neque, esse id tempore vitae fuga incidunt nulla!",
   },
   {
-    title: "Blog 2",
+    title: "Post 2",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia repellat modi recusandae voluptatum deserunt earum rem nostrum eum a quam maxime adipisci neque, esse id tempore vitae fuga incidunt nulla!",
   },
   {
-    title: "Blog 2",
+    title: "Post 3",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia repellat modi recusandae voluptatum deserunt earum rem nostrum eum a quam maxime adipisci neque, esse id tempore vitae fuga incidunt nulla!",
   },

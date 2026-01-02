@@ -1,13 +1,13 @@
 import { Header } from "../components/header/header";
 import { Hero } from "../components/Hero";
-import { Blogs } from "../components/Blogs";
+import { PostList } from "../components/PostList";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
-      <Blogs />
+      <PostList />
     </>
   );
 }

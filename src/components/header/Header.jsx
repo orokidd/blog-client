@@ -12,7 +12,7 @@ export function Header() {
       </div>
 
       <div className="header-options">
-        {user ? <div className="logout">Logout</div> : <div className="Login">Login</div>}
+        { user ? <div className="logout">Logout</div> : <div className="Login">Login</div> }
         </div>
     </header>
   );

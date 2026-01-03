@@ -28,8 +28,8 @@ export function PostList() {
     <div className="posts-container">
       {posts.map((element, index) => (
 
-        <div className="post" key={index}>
-          <Link to="/post" className="post-link">
+        <div className="post" key={element.id}>
+          <Link to={`/post/${element.id}`} className="post-link">
             <div className="post-title">{element.title}</div>
           </Link>
           <div className="post-content">{element.content}</div>

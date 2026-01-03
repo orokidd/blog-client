@@ -1,7 +1,9 @@
 import siteLogo from '../../assets/site-icon.jpeg'
+import { useContext } from "react"
+import { AuthContext } from "../../context/AuthContext"
 
 export function Header() {
-  const user = null;
+  const { loggedIn, user } = useContext(AuthContext)
 
   return (
     <header className="header">

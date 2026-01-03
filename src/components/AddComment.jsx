@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 
 export function AddComment() {
-    const { loggedIn } = useContext(AuthContext)
+    const { loggedIn, user } = useContext(AuthContext)
 
     return (
         <>

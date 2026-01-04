@@ -1,9 +1,10 @@
 import siteLogo from '../../assets/site-icon.jpeg'
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
+import { Link } from 'react-router-dom';
 
 export function Header() {
-  const { loggedIn, user } = useContext(AuthContext)
+  const { loggedIn, user, logout } = useContext(AuthContext)
 
   return (
     <header className="header">
@@ -14,7 +15,14 @@ export function Header() {
       </div>
 
       <div className="header-options">
-        { user ? <div className="logout">Logout</div> : <div className="Login">Login</div> }
+        { loggedIn ? 
+        <div className="logout">
+          <span className="username">Hello, {user.username}</span>
+          <button onClick={logout}>Logout</button>
+        </div> : 
+        <div className="Login">
+          <Link to="/login">Login</Link>
+        </div> }
         </div>
     </header>
   );

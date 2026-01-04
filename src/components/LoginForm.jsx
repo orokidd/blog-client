@@ -36,7 +36,7 @@ export function LoginForm() {
             if (!response.ok) throw new Error(data.message)
 
             login(data.token)
-            navigate('/');
+            navigate('/')
         } catch (error) {
             setError(error.message)
         }

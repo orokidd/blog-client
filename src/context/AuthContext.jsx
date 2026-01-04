@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState({test: 'cincong'});
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   function getToken() {
@@ -35,8 +35,9 @@ export function AuthProvider({ children }) {
       if (!res.ok) throw new Error("Invalid token");
 
       const data = await res.json();
-      setUser(data.user);
-    } catch {
+      setUser(data);
+    } catch (err) {
+      console.error(err);
       clearToken();
       setUser(null);
     } finally {

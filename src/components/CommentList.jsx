@@ -1,37 +1,29 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+export function CommentList({ comments, loading, user }) {
+  const userId = user ? user.id : null;
 
-export function CommentList() {
-  const {postId} = useParams()
-  const [comments, setComments] = useState([])
+  if (loading) return <p>Loading comments...</p>;
 
-  useEffect(() => {
-
-    async function fetchComments() {
-      try {
-        const res = await fetch(`http://localhost:3000/api/comments/post/${postId}`)
-        if (!res.ok) throw new Error("Failed to fetch data");
-
-        const data = await res.json();
-        setComments(data);
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    fetchComments()
-  }, [postId])
-
-  console.log(comments)
+  if (comments.length === 0) {
+    return <p>No comments yet</p>;
+  }
 
   return (
     <div className="comments-container">
-        <div className="comment-header"><h2>Comments</h2></div>
+      <div className="comment-header">
+        <h2>Comments</h2>
+      </div>
+
       {comments.map((comment) => {
         return (
           <div className="comment" key={comment.id}>
             <div className="comment-username">{comment.user.username}</div>
             <div className="comment-content">{comment.content}</div>
+
+            {userId === comment.userId && (
+              <div className="comment-actions">
+                <button className="delete-button">Delete</button>
+              </div>
+            )}
           </div>
         );
       })}

@@ -1,6 +1,6 @@
 import { Header } from "../components/header/Header";
 import { PostContent } from "../components/PostContent";
-import { Comments } from "../components/Comments";
+import { Comments } from "../components/Comments/Comments";
 
 export default function Post() {
   return (

@@ -27,7 +27,7 @@ export function CommentForm({ loggedIn, postId, onCommentCreated }) {
       setError("Failed to post comment");
       return;
     }
-
+    setError(null);
     setComment({ comment: "" });
     onCommentCreated();
   };
@@ -41,7 +41,7 @@ export function CommentForm({ loggedIn, postId, onCommentCreated }) {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <textarea name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50"></textarea>
+            <textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50"></textarea>
             <br />
             <button type="submit">Submit Comment</button>
           </form>

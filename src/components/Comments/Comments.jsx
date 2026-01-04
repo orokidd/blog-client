@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router"
 import { CommentForm } from "./CommentForm"
 import { CommentList } from "./CommentList"
-import { AuthContext } from "../context/AuthContext"
+import { AuthContext } from "../../context/AuthContext"
 
 export function Comments() {
   const { postId } = useParams()

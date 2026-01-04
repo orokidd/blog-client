@@ -9,9 +9,9 @@ export function Header() {
   return (
     <header className="header">
       <div className="site-icon">
-        <a href="/">
+        <Link to="/">
           <img src={siteLogo} alt="Site logo" />
-        </a>
+        </Link>
       </div>
 
       <div className="header-options">

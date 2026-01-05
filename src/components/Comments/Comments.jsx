@@ -50,7 +50,7 @@ export function Comments() {
 
   return (
     <>
-      <CommentForm loggedIn={loggedIn} postId={postId} onCommentCreated={fetchComments} getToken={getToken} />
+      <CommentForm loggedIn={loggedIn} postId={postId} getToken={getToken} setComments={setComments} />
       <CommentList comments={comments} loading={loading} user={user} onDeleteComment={handleDeleteComment}/>
     </>
   )

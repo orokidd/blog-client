@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function CommentForm({ loggedIn, postId, onCommentCreated }) {
+export function CommentForm({ loggedIn, postId, onCommentCreated, getToken }) {
   const [comment, setComment] = useState({
     comment: "",
   });
@@ -18,7 +18,7 @@ export function CommentForm({ loggedIn, postId, onCommentCreated }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${getToken()}`,
       },
       body: JSON.stringify(comment),
     });
@@ -41,7 +41,7 @@ export function CommentForm({ loggedIn, postId, onCommentCreated }) {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50"></textarea>
+            <textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50" required></textarea>
             <br />
             <button type="submit">Submit Comment</button>
           </form>

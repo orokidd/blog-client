@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginForm() {
     const navigate = useNavigate();
@@ -46,6 +46,9 @@ export function LoginForm() {
 
     return (
         <div className="form-container">
+            <div className="error">
+                {error}
+            </div>
             <form onSubmit={handleSubmit} className="form-login">
                 <div className="form-header">
                     <h1>Login</h1>

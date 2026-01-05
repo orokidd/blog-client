@@ -1,4 +1,5 @@
 - login & register page
-- show comment input 
 - admin loginnya sama aja kaya user tapi admin bisa access /admin
 - admin dashboard: list post, new post, edit post, delete post
+- comment delete functionality
+- comment time/date

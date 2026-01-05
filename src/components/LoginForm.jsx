@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 export function LoginForm() {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ export function LoginForm() {
         password: ''
     })
 
-    const [error, setError] = useState('')
+    const [error, setError] = useState(null)
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -54,12 +54,12 @@ export function LoginForm() {
 
                 <div className="form-content">
                     <div className="input-group">
-                        <label htmlFor="">Username: </label>
-                        <input type="text" name="username" onChange={handleChange}/>
+                        <label htmlFor="username">Username: </label>
+                        <input type="text" name="username" onChange={handleChange} required/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="">Password: </label>
-                        <input type="password" name="password" onChange={handleChange}/>
+                        <label htmlFor="password">Password: </label>
+                        <input type="password" name="password" onChange={handleChange} required/>
                     </div>
                 </div>
                 
@@ -69,6 +69,10 @@ export function LoginForm() {
                     </div>
                 </div>
             </form>
+
+            <div className="register-text">
+                <Link to="/register">Register</Link>
+            </div>
         </div>
     )
 }

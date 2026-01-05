@@ -42,8 +42,6 @@ export function LoginForm() {
         }
     }
 
-    console.log(formData)
-
     return (
         <div className="form-container">
             <div className="error">

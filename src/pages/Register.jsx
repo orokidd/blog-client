@@ -13,6 +13,10 @@ export function Register() {
 
     const [error, setError] = useState(null)
 
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null)
@@ -30,14 +34,15 @@ export function Register() {
                     "Content-Type": "application/json",
                 }
             })
-            if (!response.ok) {
-                setError(data.message || "Failed to register");
-                throw new Error("Failed to register")
-            }
             const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.message)
+            }
+
             console.log(data)
             navigate('/login')
         } catch (err) {
+            setError(err.message)
             console.log(err)
         }
 
@@ -52,22 +57,22 @@ export function Register() {
             <form onSubmit={handleSubmit}>
                 <div className="input-group">
                     <label htmlFor="username">Username</label>
-                    <input type="text" name="username" onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })} />
+                    <input type="text" name="username" onChange={handleChange} />
                 </div>
 
                 <div className="input-group">
                     <label htmlFor="email">Email</label>
-                    <input type="text" name="email" onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })} />
+                    <input type="text" name="email" onChange={handleChange} />
                 </div>
 
                 <div className="input-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })} />
+                    <input type="password" name="password" onChange={handleChange} />
                 </div>
 
                 <div className="input-group">
                     <label htmlFor="passwordConfirmation">Confirm Password</label>
-                    <input type="password" name="passwordConfirmation" onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })} />
+                    <input type="password" name="passwordConfirmation" onChange={handleChange} />
                 </div>
 
                 <div className="button-group">

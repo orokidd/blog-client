@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-export function CommentForm({ loggedIn, postId, getToken, setComments }) {
+export function CommentForm({ loggedIn, handleNewComment, error }) {
   const [comment, setComment] = useState({
     comment: "",
   });
-
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setComment({ ...comment, [e.target.name]: e.target.value });
@@ -13,27 +11,8 @@ export function CommentForm({ loggedIn, postId, getToken, setComments }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const res = await fetch(`http://localhost:3000/api/comments/post/${postId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${getToken()}`,
-      },
-      body: JSON.stringify(comment),
-    });
-
-    if (!res.ok) {
-      setError("Failed to post comment");
-      return;
-    }
-
-    const data = await res.json();
-    const newComment = data.createdComment;
-
-    setComments(prevComments => [newComment, ...prevComments])
+    handleNewComment(comment)
     setComment({ comment: "" });
-    setError(null);
   };
 
   return (
@@ -41,10 +20,10 @@ export function CommentForm({ loggedIn, postId, getToken, setComments }) {
       {loggedIn ? (
         <div className="comment-form">
           <div className="error">
-            <p className="error-text">{error}</p>
+            <p> className="error-text">{error}</p>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={() => handleSubmit}>
             <textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50" required></textarea>
             <br />
             <button type="submit">Submit Comment</button>

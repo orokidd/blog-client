@@ -8,6 +8,7 @@ export function Comments() {
   const { postId } = useParams()
   const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const { loggedIn, user, getToken } = useContext(AuthContext)
 
   const fetchComments = async () => {
@@ -44,13 +45,35 @@ export function Comments() {
     }
   }
 
+  const handleNewComment = async (comment) => {
+    const res = await fetch(`http://localhost:3000/api/comments/post/${postId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${getToken()}`
+      },
+      body: JSON.stringify({comment})
+    })
+
+    if (!res.ok) {
+      setError("Failed to post comment");
+      return;
+    }
+
+    const data = await res.json();
+    const newComment = data.createdComment;
+
+    setComments(prevComments => [newComment, ...prevComments])
+    setError(null);
+  }
+
   useEffect(() => {
     fetchComments()
   }, [postId])
 
   return (
     <>
-      <CommentForm loggedIn={loggedIn} postId={postId} getToken={getToken} setComments={setComments} />
+      <CommentForm loggedIn={loggedIn} handleNewComment={handleNewComment()} error={error} />
       <CommentList comments={comments} loading={loading} user={user} onDeleteComment={handleDeleteComment}/>
     </>
   )

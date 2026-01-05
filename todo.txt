@@ -3,3 +3,4 @@
 - admin dashboard: list post, new post, edit post, delete post
 - comment delete functionality
 - comment time/date
+- move up the state setter

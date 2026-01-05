@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function CommentForm({ loggedIn, postId, onCommentCreated, getToken }) {
+export function CommentForm({ loggedIn, postId, getToken, setComments }) {
   const [comment, setComment] = useState({
     comment: "",
   });
@@ -27,9 +27,13 @@ export function CommentForm({ loggedIn, postId, onCommentCreated, getToken }) {
       setError("Failed to post comment");
       return;
     }
-    setError(null);
+
+    const data = await res.json();
+    const newComment = data.createdComment;
+
+    setComments(prevComments => [newComment, ...prevComments])
     setComment({ comment: "" });
-    onCommentCreated();
+    setError(null);
   };
 
   return (

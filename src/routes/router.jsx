@@ -3,6 +3,8 @@ import Home from "../pages/Home";
 import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AdminDashboard from "../pages/admin/Dashboard";
+import NotFound from "../pages/NotFound";
 
 // export const router = createBrowserRouter([
 //   {
@@ -20,6 +22,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFound />,
   },
   {
     path: "/login",
@@ -32,5 +35,9 @@ export const router = createBrowserRouter([
   {
     path: "/post/:postId",
     element: <Post />,
+  },
+  {
+    path: "/admin",
+    element: <AdminDashboard />,
   },
 ]);

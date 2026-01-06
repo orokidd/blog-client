@@ -2,6 +2,7 @@ import {useContext} from "react";
 import {AuthContext} from "../context/AuthContext.jsx";
 import {Navigate} from "react-router-dom";
 import NotAllowed from "../components/NotAllowed.jsx";
+import {AdminPostList} from "../components/AdminPostList.jsx";
 
 export default function AdminDashboard() {
     const { user, loggedIn, loading } = useContext(AuthContext);
@@ -21,6 +22,7 @@ export default function AdminDashboard() {
     return (
         <div className="dashboard">
             <h1>This is the admin page.</h1>
+            <AdminPostList />
         </div>
     )
 }

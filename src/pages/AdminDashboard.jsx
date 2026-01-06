@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {AuthContext} from "../../context/AuthContext";
+import {AuthContext} from "../context/AuthContext.jsx";
 import {Navigate} from "react-router-dom";
-import NotAllowed from "../../components/NotAllowed";
+import NotAllowed from "../components/NotAllowed.jsx";
 
-export default function Dashboard() {
+export default function AdminDashboard() {
     const { user, loggedIn, loading } = useContext(AuthContext);
 
     if (loading) {

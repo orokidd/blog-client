@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import AdminDashboard from "../pages/admin/Dashboard";
+import AdminDashboard from "../pages/AdminDashboard";
 import NotFound from "../pages/NotFound";
 
 // export const router = createBrowserRouter([

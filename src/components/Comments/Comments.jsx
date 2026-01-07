@@ -52,7 +52,7 @@ export function Comments() {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${getToken()}`
       },
-      body: JSON.stringify({comment})
+      body: JSON.stringify(comment)
     })
 
     if (!res.ok) {
@@ -61,6 +61,7 @@ export function Comments() {
     }
 
     const data = await res.json();
+    console.log (data.message);
     const newComment = data.createdComment;
 
     setComments(prevComments => [newComment, ...prevComments])
@@ -73,7 +74,7 @@ export function Comments() {
 
   return (
     <>
-      <CommentForm loggedIn={loggedIn} handleNewComment={handleNewComment()} error={error} />
+      <CommentForm loggedIn={loggedIn} handleNewComment={handleNewComment} error={error} />
       <CommentList comments={comments} loading={loading} user={user} onDeleteComment={handleDeleteComment}/>
     </>
   )

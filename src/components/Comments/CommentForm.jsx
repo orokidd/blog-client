@@ -20,10 +20,10 @@ export function CommentForm({ loggedIn, handleNewComment, error }) {
       {loggedIn ? (
         <div className="comment-form">
           <div className="error">
-            <p> className="error-text">{error}</p>
+            <p className="error-text">{error}</p>
           </div>
 
-          <form onSubmit={() => handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50" required></textarea>
             <br />
             <button type="submit">Submit Comment</button>

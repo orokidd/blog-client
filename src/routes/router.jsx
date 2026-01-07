@@ -5,7 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AdminDashboard from "../pages/AdminDashboard";
 import NotFound from "../pages/NotFound";
-import AdminNewPost from "../pages/AdminNewPost";
+import AdminPost from "../pages/AdminPost";
 
 // export const router = createBrowserRouter([
 //   {
@@ -43,6 +43,6 @@ export const router = createBrowserRouter([
   },
     {
     path: "/admin/new-post",
-    element: <AdminNewPost />,
+    element: <AdminPost />,
   },
 ]);

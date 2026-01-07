@@ -3,7 +3,7 @@ import {AuthContext} from "../context/AuthContext.jsx";
 import {Link} from "react-router-dom";
 import ProtectedPage from "./ProtectedPage.jsx";
 
-export default function AdminNewPost() {
+export default function AdminPost() {
     const [formData, setFormData] = useState({
         title: '',
         content: '',

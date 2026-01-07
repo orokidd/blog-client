@@ -64,6 +64,9 @@ export function AdminPostList() {
                             <button className="post-action-delete" onClick={() => {deletePost(post.id)}}>Delete</button>
                         </div>
                         <div className="post-action-edit">Edit</div>
+                        <div className="post-action-publish">
+                            {post.published ? "Unpublish" : "Publish"}
+                        </div>
                     </div>
                 </div>
                 ))}

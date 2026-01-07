@@ -1,6 +1,7 @@
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../context/AuthContext.jsx";
 import {Link} from "react-router-dom";
+import ProtectedPage from "./ProtectedPage.jsx";
 
 export default function AdminNewPost() {
     const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ export default function AdminNewPost() {
 
             const data = await res.json();
             console.log("Post created successfully:", data);
-            
+
             setFormData({
                 title: '',
                 content: '',
@@ -46,6 +47,7 @@ export default function AdminNewPost() {
     }
 
     return (
+        <ProtectedPage>
         <div className="admin-new-post">
             <h2>Create New Post</h2>
             {error && <div className="error">{error}</div>}
@@ -71,5 +73,6 @@ export default function AdminNewPost() {
                 </div>
             </form>
         </div>
+        </ProtectedPage>
     )
 }

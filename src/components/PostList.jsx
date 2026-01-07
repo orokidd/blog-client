@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { PostItem } from "./PostItem";
 
 export function PostList() {
   const [posts, setPosts] = useState([]);
@@ -26,15 +26,8 @@ export function PostList() {
 
   return (
     <div className="posts-container">
-      {posts.map((element, index) => (
-
-        <div className="post" key={element.id}>
-          <Link to={`/post/${element.id}`} className="post-link">
-            <div className="post-title">{element.title}</div>
-          </Link>
-          <div className="post-content">{element.content}</div>
-        </div>
-
+      {posts.map((post) => (
+        <PostItem key={post.id} post={post} />
       ))}
     </div>
   );

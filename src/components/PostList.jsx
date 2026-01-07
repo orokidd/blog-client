@@ -4,19 +4,20 @@ import { PostItem } from "./PostItem";
 export function PostList() {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const res = await fetch("http://localhost:3000/api/posts/published");
-        if (!res.ok) throw new Error("Failed to fetch data");
+  async function fetchPosts() {
+    try {
+      const res = await fetch("http://localhost:3000/api/posts");
+      if (!res.ok) throw new Error("Failed to fetch data");
 
-        const data = await res.json();
-        setPosts(data);
-      } catch (error) {
-        console.log(error);
-      }
+      const data = await res.json();
+      setPosts(data);
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
     }
+  }
 
+  useEffect(() => {
     fetchPosts();
   }, []);
 

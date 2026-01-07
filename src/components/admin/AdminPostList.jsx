@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import {Link} from "react-router-dom";
 
-export function AdminPostList() {
+export default function AdminPostList() {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
     const { getToken } = useContext(AuthContext);

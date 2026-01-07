@@ -1,4 +1,4 @@
-import { PostList } from "../components/PostList.jsx";
+import AdminPostList from "../components/admin/AdminPostList.jsx";
 import ProtectedPage from "./ProtectedPage.jsx";
 
 export default function AdminDashboard() {
@@ -6,7 +6,7 @@ export default function AdminDashboard() {
         <ProtectedPage>
             <div className="dashboard">
                 <h1>This is the admin page.</h1>
-                <PostList />
+                <AdminPostList />
             </div>
         </ProtectedPage>
     )

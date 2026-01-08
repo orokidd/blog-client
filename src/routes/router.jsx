@@ -42,6 +42,10 @@ export const router = createBrowserRouter([
     element: <AdminDashboard />,
   },
     {
+    path: "/admin/posts/:postId/edit",
+    element: <AdminPost />,
+  },
+    {
     path: "/admin/new-post",
     element: <AdminPost />,
   },

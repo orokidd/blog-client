@@ -40,7 +40,7 @@ export function LoginForm() {
     }
 
     useEffect(() => {
-        if (user && user.role === 'admin') {
+        if (user && user.role === 'ADMIN') {
             navigate('/admin');
         } else if (user) {
             navigate('/');

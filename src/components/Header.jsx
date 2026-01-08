@@ -1,6 +1,6 @@
-import siteLogo from '../../assets/site-icon.jpeg'
+import siteLogo from '../assets/site-icon.jpeg'
 import { useContext } from "react"
-import { AuthContext } from "../../context/AuthContext"
+import { AuthContext } from "../context/AuthContext"
 import { Link } from 'react-router-dom';
 
 export function Header() {

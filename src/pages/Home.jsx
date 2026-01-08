@@ -1,4 +1,4 @@
-import { Header } from "../components/header/Header";
+import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { PostList } from "../components/PostList";
 import { useEffect, useState } from "react";

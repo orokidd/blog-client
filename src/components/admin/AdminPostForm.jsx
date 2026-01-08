@@ -84,6 +84,11 @@ export default function AdminPostForm() {
                         onChange={(e) => setFormData(prev => ({...prev, title: e.target.value}))}
                     />
                 </div>
+
+                <div>
+                    <p>{formData.published ? "Published" : "Draft"}</p>
+                </div>
+
                 <div>
                     <label>Content:</label>
                     <textarea

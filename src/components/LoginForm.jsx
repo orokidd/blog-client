@@ -1,18 +1,16 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Link, useNavigate} from 'react-router-dom';
 
 export function LoginForm() {
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext)
-
+    const { login, user } = useContext(AuthContext)
+    const [error, setError] = useState(null)
     const [formData, setFormData] = useState({
         username: '',
         password: ''
     })
-
-    const [error, setError] = useState(null)
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -36,11 +34,18 @@ export function LoginForm() {
             if (!response.ok) throw new Error(data.message)
 
             login(data.token)
-            navigate('/')
         } catch (error) {
             setError(error.message)
         }
     }
+
+    useEffect(() => {
+        if (user && user.role === 'admin') {
+            navigate('/admin');
+        } else if (user) {
+            navigate('/');
+        }
+    }, [user, navigate]);
 
     return (
         <div className="form-container">

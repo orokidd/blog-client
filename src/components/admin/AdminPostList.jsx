@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from "react";
-import {AuthContext} from "../../context/AuthContext.jsx";
+import {AuthContext} from "../../context/AuthContext";
 import {Link} from "react-router-dom";
 
 export default function AdminPostList() {
@@ -63,7 +63,11 @@ export default function AdminPostList() {
                         <div className="post-action-delete">
                             <button className="post-action-delete" onClick={() => {deletePost(post.id)}}>Delete</button>
                         </div>
-                        <div className="post-action-edit">Edit</div>
+
+                        <div className="post-action-edit">
+                            <Link to={`/admin/posts/${post.id}/edit`}>Edit</Link>
+                        </div>
+
                         <div className="post-action-publish">
                             {post.published ? "Unpublish" : "Publish"}
                         </div>

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
-import Post from "../pages/Post";
+import BlogPost from "../pages/BlogPost";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AdminDashboard from "../pages/AdminDashboard";
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/post/:postId",
-    element: <Post />,
+    element: <BlogPost />,
   },
   {
     path: "/admin",

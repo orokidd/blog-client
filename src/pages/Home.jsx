@@ -1,4 +1,4 @@
-import { Header } from "../components/header/header";
+import { Header } from "../components/header/Header";
 import { Hero } from "../components/Hero";
 import { PostList } from "../components/PostList";
 

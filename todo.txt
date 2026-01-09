@@ -1,6 +1,1 @@
-- login & register page
-- admin loginnya sama aja kaya user tapi admin bisa access /admin
-- admin dashboard: list post, new post, edit post, delete post
-- comment delete functionality
-- comment time/date
-- move up the state setter
+- move state up and pass it via prop

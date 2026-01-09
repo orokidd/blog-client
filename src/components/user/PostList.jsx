@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import { PostItem } from "./PostItem";
 
 export function PostList({ posts }) {

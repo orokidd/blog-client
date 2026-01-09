@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home";
-import BlogPost from "../pages/BlogPost";
+import Home from "../pages/user/Home.jsx";
+import BlogPost from "../pages/user/BlogPost.jsx";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import AdminDashboard from "../pages/AdminDashboard";
-import NotFound from "../pages/NotFound";
-import AdminPost from "../pages/AdminPost";
+import AdminDashboard from "../pages/admin/Dashboard.jsx";
+// import NotFound from "../pages/NotFound";
+import AdminPost from "../pages/admin/NewPost.jsx";
+import Error from "../pages/Error.jsx";
 
 // export const router = createBrowserRouter([
 //   {
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <NotFound />,
+    errorElement: <Error errorType="not-found" />,
   },
   {
     path: "/login",
@@ -41,11 +42,11 @@ export const router = createBrowserRouter([
     path: "/admin",
     element: <AdminDashboard />,
   },
-    {
+  {
     path: "/admin/posts/:postId/edit",
     element: <AdminPost />,
   },
-    {
+  {
     path: "/admin/new-post",
     element: <AdminPost />,
   },

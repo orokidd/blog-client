@@ -1,5 +1,5 @@
-import AdminPostList from "../components/admin/AdminPostList.jsx";
-import ProtectedPage from "./ProtectedPage.jsx";
+import AdminPostList from "../../components/admin/AdminPostList.jsx";
+import ProtectedPage from "../ProtectedPage.jsx";
 
 export default function AdminDashboard() {
     return (

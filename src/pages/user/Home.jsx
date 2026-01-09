@@ -1,6 +1,6 @@
-import { Header } from "../components/Header";
-import { Hero } from "../components/Hero";
-import { PostList } from "../components/PostList";
+import { Header } from "../../components/Header";
+import { Hero } from "../../components/Hero";
+import { PostList } from "../../components/user/PostList";
 import { useEffect, useState } from "react";
 
 export default function Home() {

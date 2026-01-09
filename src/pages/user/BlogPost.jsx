@@ -1,6 +1,6 @@
-import { Header } from "../components/Header";
-import { PostContent } from "../components/PostContent";
-import { Comments } from "../components/Comments/Comments";
+import { Header } from "../../components/Header";
+import { PostContent } from "../../components/user/PostContent";
+import { Comments } from "../../components/Comments/Comments";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";

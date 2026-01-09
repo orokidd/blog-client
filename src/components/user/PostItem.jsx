@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function PostItem({ post, isAdmin = false, deletePost }) {
+export function PostItem({ post }) {
 	return (
 		<div className="post">
 			<Link to={`/post/${post.id}`} className="post-link">

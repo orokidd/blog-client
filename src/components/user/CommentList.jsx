@@ -1,4 +1,4 @@
-export function CommentList({ comments, loading, user, onDeleteComment }) {
+export function CommentList({ comments, loading, user, handleDeleteComment }) {
   const userId = user ? user.id : null;
 
   if (loading) return <p>Loading comments...</p>;
@@ -21,7 +21,7 @@ export function CommentList({ comments, loading, user, onDeleteComment }) {
 
             {userId === comment.userId && (
               <div className="comment-actions">
-                  <button type="submit" className="delete-button" onClick={() => onDeleteComment(comment.id)}>Delete</button>
+                  <button type="submit" className="delete-button" onClick={() => handleDeleteComment(comment.id)}>Delete</button>
               </div>
             )}
           </div>

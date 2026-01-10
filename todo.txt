@@ -1,1 +1,1 @@
-- move state up and pass it via prop
+- Refactor admin page states (move state up)

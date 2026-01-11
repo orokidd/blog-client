@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import { useParams, useNavigate } from "react-router-dom";
 import AdminPostForm from "../../components/admin/AdminPostForm.jsx";
+import AdminPostComments from "../../components/admin/AdminPostComments.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
 
 export default function AdminPost() {
@@ -10,8 +11,9 @@ export default function AdminPost() {
     const isEdit = Boolean(postId);
     const { getToken } = useContext(AuthContext);
     
+    const [comments, setComments] = useState([]);
     const [error, setError] = useState(null);
-    const [loading, setLoading]  = useState(false);
+    const [loading, setLoading]  = useState(true);
     const [formData, setFormData] = useState({
         title: '',
         content: '',
@@ -19,7 +21,6 @@ export default function AdminPost() {
     });
     
     const fetchPost = async () => {
-        setLoading(true);
         try {
             const res = await fetch(`http://localhost:3000/api/posts/${postId}`);
             if (!res.ok) throw new Error("Failed to fetch post");
@@ -68,15 +69,56 @@ export default function AdminPost() {
         }
     }
 
+    const fetchComments = async () => {
+		try {
+			const res = await fetch(`http://localhost:3000/api/comments/post/${postId}`);
+			const data = await res.json();
+
+			setComments(data);
+			setLoading(false);
+		} catch (error) {
+			console.log(error);
+			setLoading(false);
+		}
+	};
+
+    const handleDeleteComment = async (commentId) => {
+		try {
+			const res = await fetch(`http://localhost:3000/api/comments/${commentId}`, {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${getToken()}`,
+				},
+			});
+
+			if (!res.ok) {
+				return setError("Failed to delete comment");
+			}
+
+			const data = await res.json();
+			console.log(data.message);
+			setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
+		} catch (error) {
+			console.error("Error deleting comment:", error);
+		}
+	};
+
     useEffect(() => {
         if (isEdit) {
             fetchPost();
+            fetchComments();
+        }
+
+        if (!isEdit) {
+            setLoading(false);
         }
     }, [isEdit, postId]);
 
     return (
         <ProtectedPage>
             <AdminPostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} isEdit={isEdit} loading={loading} />
+            <AdminPostComments comments={comments} handleDeleteComment={handleDeleteComment} loading={loading} error={error} isEdit={isEdit} />
         </ProtectedPage>
     )
 }

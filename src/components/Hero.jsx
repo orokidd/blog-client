@@ -1,10 +1,12 @@
+import styles from '../styles/Hero.module.css'
+
 export function Hero({role}) {
-  const headerText = role === "ADMIN" ? "Welcome, Admin!" : "Hello!";
+  const headerHeader = role === "ADMIN" ? "Welcome, Admin!" : "Orokidd.";
 
   return (
-    <div className="hero-container">
-      <p className="hero-header">{headerText}</p>
-      <p className="hero-text">Take a look at the most recent blog posts below.</p>
+    <div className={styles.heroContainer}>
+      <p className={styles.heroHeader}>{headerHeader}</p>
+      <p className={styles.heroText}>Take a look at the most recent blog posts below.</p>
     </div>
   );
 }

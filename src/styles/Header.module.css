@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.headerOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.headerOptions a {
+  transition: all ease 0.3s;
+}
+
+.headerOptions a:hover {
+  color: var(--accent);
+}
+
+.siteIcon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

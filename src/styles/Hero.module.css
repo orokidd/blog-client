@@ -1,0 +1,12 @@
+.heroContainer {
+    padding-bottom: 20px;
+}
+
+.heroHeader {
+    font-size: 128px;
+}
+
+.heroText {
+    font-size: 18px;
+    color: var(--gray)
+}

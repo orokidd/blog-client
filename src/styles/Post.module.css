@@ -1,0 +1,39 @@
+.postsContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+	/* gap: 20px; */
+}
+
+.post {
+	padding: 24px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	/* background-color: #1d1d1d; */
+	transition: transform 0.2s;
+}
+
+.post:hover {
+    background-color: var(--bg-alt);
+}
+
+.postTitle {
+	font-size: 34px;
+	margin: 10px 0;
+	color: var(--fg);
+}
+
+.postContent {
+	font-size: 16px;
+	color: var(--gray);
+	line-height: 2;
+	margin-bottom: 28px;
+
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* Number of lines to show */
+	-webkit-box-orient: vertical;
+}
+
+.postDate {
+    font-size: 16px;
+    color: var(--gray);
+}

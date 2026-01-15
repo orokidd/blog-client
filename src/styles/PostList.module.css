@@ -1,6 +1,6 @@
 .postsContainer {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+	grid-template-columns: 1fr 1fr;
 	/* gap: 20px; */
 }
 
@@ -20,6 +20,7 @@
 	margin: 10px 0;
 	color: var(--fg);
     transition: all 0.3s ease;
+	font-weight: 400;
 }
 
 .postTitle:hover {
@@ -42,4 +43,22 @@
 .postDate {
     font-size: 16px;
     color: var(--gray);
+}
+
+.paginations {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 40px;
+	grid-column: 2 / 2;
+}
+
+@media (max-width: 768px) {
+	.postsContainer {
+		grid-template-columns: 1fr;
+	}
+
+	.paginations {
+		justify-content: center;
+		grid-column: 1 / 1;
+	}
 }

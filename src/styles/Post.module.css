@@ -8,7 +8,11 @@
     font-weight: 500;
     margin-bottom: 24px;
     display: inline-block;
-    /* font-family: sans-serif; */
+    transition: all 0.3s ease;
+}
+
+.homeLink:hover {
+    color: var(--accent);
 }
 
 .postTitle {

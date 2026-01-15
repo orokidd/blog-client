@@ -4,9 +4,11 @@
 
 .heroHeader {
     font-size: 128px;
+    color: var(--fg);
+    font-family: sans-serif;
 }
 
 .heroText {
     font-size: 18px;
-    color: var(--gray)
+    color: var(--gray);
 }

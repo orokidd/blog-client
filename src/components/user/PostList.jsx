@@ -1,5 +1,5 @@
 import { PostItem } from "./PostItem";
-import styles from '../../styles/Post.module.css'
+import styles from '../../styles/PostList.module.css'
 
 export function PostList({ posts }) {
 	if (posts.length === 0) {

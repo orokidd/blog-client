@@ -1,1 +1,5 @@
-- Refactor admin page states (move state up)
+- Paginate post list
+- footer
+- page content style
+- login/register style
+- post form style

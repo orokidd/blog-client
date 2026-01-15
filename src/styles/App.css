@@ -66,6 +66,7 @@ a {
   --bg-alt-darker: #1b1b1b;
   --fg: #faf9f6;
   --accent: #c6fbbb;
+  --accent2:rgb(180, 227, 165);
   --accent-darker: #9bc593;
   --gray: #979797;
   --dark-gray: #393939;
@@ -74,30 +75,16 @@ a {
   --red: #e75555;
 }
 
-@font-face {
-  font-family: jost;
-  src: url("/fonts/jost-variable.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: playfair;
-  src: url("/fonts/playfair-variable.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: quicksand;
-  src: url("/fonts/quicksand-variable.ttf") format("truetype");
-}
 
 @font-face {
   font-family: inter;
-  src: url("/fonts/inter-variable.ttf") format("truetype");
+  src: url("../assets/Inter_variable.ttf") format("truetype");
 }
 
 body {
   background-color: var(--bg);
   color: var(--fg);
-  font-family: inter, sans-serif;
+  font-family: inter;
 }
 
 /* button reset */

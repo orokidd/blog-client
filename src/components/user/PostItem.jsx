@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from '../../styles/Post.module.css'
+import styles from '../../styles/PostList.module.css'
 import formatDate from "../../utils/dateFormatting";
 
 export function PostItem({ post }) {

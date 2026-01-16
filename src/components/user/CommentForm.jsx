@@ -17,7 +17,7 @@ export function CommentForm({ loggedIn, handleNewComment, error }) {
 	};
 
 	return (
-		<div className={styles.commentForm}>
+		<div className={styles.formContainer}>
 			{loggedIn ? (
 				<>
 					<div className="error">
@@ -26,8 +26,7 @@ export function CommentForm({ loggedIn, handleNewComment, error }) {
 
 					<form onSubmit={handleSubmit}>
 						<textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50" required></textarea>
-						<br />
-						<button type="submit">Submit Comment</button>
+						<button className={styles.submitButton} type="submit">Submit</button>
 					</form>
 				</>
 			) : (

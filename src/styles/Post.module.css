@@ -1,5 +1,5 @@
 .postContainer {
-    padding: 40px
+    padding: 40px;
 }
 
 .homeLink {
@@ -40,4 +40,10 @@
     line-height: 1.6;
     color: var(--light-gray);
     letter-spacing: .2px;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--darker-gray);
+    margin: 40px 0;
 }

@@ -1,0 +1,34 @@
+.commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 40px 20px 40px;
+}
+
+.comments {
+    padding: 0 40px;
+}
+
+.comment {
+    /* border-bottom: 1px solid var(--darker-gray); */
+    padding: 1rem 0;
+}
+
+.commentHeader {
+    display: flex;
+    gap: .4rem;
+}
+
+.username {
+    font-weight: 600;
+    color: var(--fg);
+}
+
+.commentText {
+    color: var(--gray);
+    margin-top: 0.5rem;
+}
+
+.pleaseLogin {
+    color: var(--gray);
+}

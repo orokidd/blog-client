@@ -1,23 +1,24 @@
+import styles from '../../styles/Comment.module.css'
+import { formatDateSimple } from '../../utils/dateFormatting';
+
 export function CommentList({ comments, loading, user, handleDeleteComment }) {
   const userId = user ? user.id : null;
 
   if (loading) return <p>Loading comments...</p>;
 
-  if (comments.length === 0) {
-    return <p>No comments yet</p>;
-  }
+  
 
   return (
-    <div className="comments-container">
-      <div className="comment-header">
-        <h2>Comments</h2>
-      </div>
-
+    <div className={styles.comments}>
       {comments.map((comment) => {
         return (
-          <div className="comment" key={comment.id}>
-            <div className="comment-username">{comment.user.username}</div>
-            <div className="comment-content">{comment.content}</div>
+          <div className={styles.comment} key={comment.id}>
+            <div className={styles.commentHeader}>
+              <div className={styles.username}>{comment.user.username}</div>
+              <div className={styles.commentDate}>{formatDateSimple(comment.createdAt)}</div>
+            </div>
+            
+            <div className={styles.commentText}>{comment.content}</div>
 
             {userId === comment.userId && (
               <div className="comment-actions">

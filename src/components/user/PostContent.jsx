@@ -14,6 +14,8 @@ export function PostContent({ post }) {
 				<div className={styles.postDate}>{formatDate(post.createdAt)}</div>
 				<div className={styles.postContent}>{post.content}</div>
 			</div>
+
+			<div className={styles.divider}></div>
 		</div>
 	);
 }

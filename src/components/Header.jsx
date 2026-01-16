@@ -6,6 +6,7 @@ import styles from '../styles/Header.module.css'
 
 export function Header() {
   const { loggedIn, user, logout } = useContext(AuthContext)
+  const displayRole = user?.role === 'ADMIN' ? 'Admin' : 'User';
 
   return (
     <header className={styles.header}>
@@ -18,7 +19,7 @@ export function Header() {
       <div className={styles.headerOptions}>
         { loggedIn ? 
         <div className="logout">
-          <span className="username">Hello, {user.username}</span>
+          <span className="username">{displayRole}, {user.username}</span>
           <button onClick={logout}>Logout</button>
         </div> : 
         <div className="Login">

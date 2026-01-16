@@ -21,6 +21,11 @@
     font-weight: 400;
     color: var(--fg);
     letter-spacing: .2px;
+    transition: all 0.3s ease;
+}
+
+.postTitle:hover {
+    color: var(--accent);
 }
 
 .postDate {

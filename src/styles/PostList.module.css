@@ -48,8 +48,27 @@
 .paginations {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: 40px;
+	margin-top: 12px;
 	grid-column: 2 / 2;
+}
+
+.pageButton{
+	background-color: var(--bg-alt);
+	border-radius: 60px;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.pageButton > svg {
+	transition: all 0.3s ease;
+}
+
+.pageButton:hover {
+	background-color: var(--accent);
+}
+.pageButton:hover > svg {
+	stroke: var(--bg);
 }
 
 @media (max-width: 768px) {

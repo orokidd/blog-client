@@ -72,3 +72,15 @@ textarea:enabled {
     color: var(--bg);
     background-color: var(--accent);
 }
+
+.deleteCommentButton {
+    color: var(--dark-gray);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all .3s ease;
+}
+
+.deleteCommentButton:hover {
+    text-decoration: underline;
+    color: var(--accent)
+}

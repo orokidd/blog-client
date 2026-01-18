@@ -6,8 +6,6 @@ export function CommentList({ comments, loading, user, handleDeleteComment }) {
 
   if (loading) return <p>Loading comments...</p>;
 
-  
-
   return (
     <div className={styles.comments}>
       {comments.map((comment) => {
@@ -22,7 +20,7 @@ export function CommentList({ comments, loading, user, handleDeleteComment }) {
 
             {userId === comment.userId && (
               <div className="comment-actions">
-                  <button type="submit" className="delete-button" onClick={() => handleDeleteComment(comment.id)}>Delete</button>
+                  <button type="submit" className={styles.deleteCommentButton} onClick={() => handleDeleteComment(comment.id)}>Delete</button>
               </div>
             )}
           </div>

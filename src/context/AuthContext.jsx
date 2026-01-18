@@ -6,18 +6,6 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  function getToken() {
-    return localStorage.getItem("token");
-  }
-
-  function saveToken(token) {
-    localStorage.setItem("token", token);
-  }
-
-  function clearToken() {
-    localStorage.removeItem("token");
-  }
-
   async function fetchLoggedUser() {
     const token = getToken();
     if (!token) {
@@ -55,14 +43,26 @@ export function AuthProvider({ children }) {
     setUser(null);
   }
 
+  function getToken() {
+    return localStorage.getItem("token");
+  }
+
+  function saveToken(token) {
+    localStorage.setItem("token", token);
+  }
+
+  function clearToken() {
+    localStorage.removeItem("token");
+  }
+
   // This is what makes it run once on mount   
   useEffect(() => {
     fetchLoggedUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loggedIn: Boolean(user), loading, login, logout, getToken }}>
+    <AuthContext value={{ user, loggedIn: Boolean(user), loading, login, logout, getToken }}>
         {children}
-    </AuthContext.Provider>
+    </AuthContext>
     )
 }

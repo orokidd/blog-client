@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext.jsx";
 import PostList from "../../components/admin/PostList.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
 import { Header } from "../../components/Header.jsx";
+import { DashboardOptions } from "../../components/admin/DashboardOptions.jsx";
 
 export default function AdminDashboard() {
     const [posts, setPosts] = useState([]);
@@ -52,6 +53,7 @@ export default function AdminDashboard() {
     return (
         <ProtectedPage>
             <Header />
+            <DashboardOptions setPosts={setPosts} fetchAllPosts={fetchPosts}/>
             <PostList posts={posts} deletePost={deletePost} error={error} loading={loading}/>
         </ProtectedPage>
     )

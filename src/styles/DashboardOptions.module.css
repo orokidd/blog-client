@@ -1,0 +1,15 @@
+.dashboardOptions {
+    display: flex;
+}
+
+.searchPost {
+    flex: 2;
+}
+
+.sortPost {
+    flex: 1;
+}
+
+.newPost {
+    flex: 1;
+}

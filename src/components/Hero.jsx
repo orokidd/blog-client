@@ -1,7 +1,7 @@
 import styles from '../styles/Hero.module.css'
 
 export function Hero({role}) {
-  const headerHeader = role === "ADMIN" ? "Welcome, Admin!" : "Orokidd.";
+  const headerHeader = role === "ADMIN" ? "Admin Dashboard" : "Orokidd.";
 
   return (
     <div className={styles.heroContainer}>

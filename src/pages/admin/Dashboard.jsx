@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import PostList from "../../components/admin/PostList.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
+import { Header } from "../../components/Header.jsx";
 
 export default function AdminDashboard() {
     const [posts, setPosts] = useState([]);
@@ -50,6 +51,7 @@ export default function AdminDashboard() {
     }, []);
     return (
         <ProtectedPage>
+            <Header />
             <PostList posts={posts} deletePost={deletePost} error={error} loading={loading}/>
         </ProtectedPage>
     )

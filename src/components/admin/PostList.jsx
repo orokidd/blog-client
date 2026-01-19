@@ -1,4 +1,5 @@
 import { PostItem } from "./PostItem";
+import styles from '../../styles/PostList.module.css'
 
 export default function PostList({posts, deletePost, error, loading}) {
     if (loading) {
@@ -14,7 +15,7 @@ export default function PostList({posts, deletePost, error, loading}) {
     }
 
     return (
-        <div className="posts-container">
+        <div className={styles.postsContainer}>
             {posts.map((post) => (
                 <PostItem key={post.id} post={post} deletePost={deletePost}/>
                 ))}

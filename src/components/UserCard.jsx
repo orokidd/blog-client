@@ -12,8 +12,14 @@ export function UserCard( { showCard }) {
 				{loggedIn ? (
 					<>
 						<div className="user-info">
-							{displayRole}, {user.username}
+							{user.username}
 						</div>
+
+						{user?.role === 'ADMIN' ? (
+							<div className="admin-link">
+								<Link to='/admin' className={styles.logoutButton}>Admin</Link>
+							</div>
+						) : null }
 
 						<div className="logout">
 							<button className={styles.logoutButton} onClick={logout}>Logout</button>

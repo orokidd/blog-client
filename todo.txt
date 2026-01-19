@@ -1,5 +1,6 @@
-- Paginate post list
+- admin blog list 
+- new post form
 - footer
-- page content style
-- login/register style
-- post form style
+- login/register
+- delete modal
+- refactor admin dashboard: pake component yg sama dari user tapi pake conditional to check isAdmin

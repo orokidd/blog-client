@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.jsx";
-import AdminPostList from "../../components/admin/AdminPostList.jsx";
+import PostList from "../../components/admin/PostList.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
 
 export default function AdminDashboard() {
@@ -50,7 +50,7 @@ export default function AdminDashboard() {
     }, []);
     return (
         <ProtectedPage>
-            <AdminPostList posts={posts} deletePost={deletePost} error={error} loading={loading}/>
+            <PostList posts={posts} deletePost={deletePost} error={error} loading={loading}/>
         </ProtectedPage>
     )
 }

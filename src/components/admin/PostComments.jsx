@@ -1,4 +1,4 @@
-export default function AdminPostComments({ comments, handleDeleteComment, loading, error, isEdit }) {
+export default function PostComments({ comments, handleDeleteComment, loading, error, isEdit }) {
     if (!isEdit) return null;
 	if (loading) return <p>Loading comments...</p>;
 	if (error) return <p>Error: {error}</p>;

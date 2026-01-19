@@ -1,9 +1,10 @@
-export default function AdminPostForm({ formData, setFormData, handleSubmit, error, isEdit, loading }) {
+export default function PostForm({ formData, setFormData, handleSubmit, error, isEdit, loading }) {
 	return (
 		<div className="admin-new-post">
 			<h2>{isEdit ? "Edit Post" : "Create New Post"}</h2>
 			{error && <div className="error">{error}</div>}
             {loading && <div className="loading">Loading...</div>}
+			
 			<form>
 				<div>
 					<label>Title:</label>

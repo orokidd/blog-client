@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import { useParams, useNavigate } from "react-router-dom";
-import AdminPostForm from "../../components/admin/AdminPostForm.jsx";
-import AdminPostComments from "../../components/admin/AdminPostComments.jsx";
+import PostForm from "../../components/admin/PostForm.jsx";
+import PostComments from "../../components/admin/PostComments.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
 
 export default function AdminPost() {
@@ -117,8 +117,8 @@ export default function AdminPost() {
 
     return (
         <ProtectedPage>
-            <AdminPostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} isEdit={isEdit} loading={loading} />
-            <AdminPostComments comments={comments} handleDeleteComment={handleDeleteComment} loading={loading} error={error} isEdit={isEdit} />
+            <PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} isEdit={isEdit} loading={loading} />
+            <PostComments comments={comments} handleDeleteComment={handleDeleteComment} loading={loading} error={error} isEdit={isEdit} />
         </ProtectedPage>
     )
 }

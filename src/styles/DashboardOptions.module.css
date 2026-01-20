@@ -10,6 +10,10 @@
     flex: 1;
 }
 
+.sortButton {
+    color: white;
+}
+
 .newPost {
     flex: 1;
 }

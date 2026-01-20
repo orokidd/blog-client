@@ -12,10 +12,6 @@ export default function PostForm({ formData, setFormData, handleSubmit, error, i
 				</div>
 
 				<div>
-					<p>{formData.published ? "Published" : "Draft"}</p>
-				</div>
-
-				<div>
 					<label>Content:</label>
 					<textarea value={formData.content} onChange={(e) => setFormData((prev) => ({ ...prev, content: e.target.value }))} />
 				</div>

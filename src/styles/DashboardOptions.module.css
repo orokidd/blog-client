@@ -1,19 +1,64 @@
 .dashboardOptions {
     display: flex;
+    margin-bottom: 12px;
 }
 
 .searchPost {
-    flex: 2;
+    flex: 1.4;
+}
+
+.searchInput {
+    padding: 12px 18px;
+    border: none;
+    background-color: var(--bg-alt);
+    color: var(--gray);
+    font-size: 14px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.searchInput:enabled {
+    border: none;
+    outline: none;
 }
 
 .sortPost {
     flex: 1;
+    display: flex;
+}
+
+.selectContainer {
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+
+    background-color: var(--bg-alt);
+    border-radius: 50px;
+    overflow: hidden;
+    padding-right: 14px;
+    font-size: 14px;
+}
+.selectContainer select {
+    flex: 1;
+    appearance: none;
+    border: none;
+    background-color: var(--bg-alt);
+    padding: 12px 18px;
+    color: var(--gray);
+    cursor: pointer;
 }
 
 .sortButton {
-    color: white;
+    color: var(--gray);
+}
+.sortButton svg {
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.sortButton svg:hover {
+    stroke: var(--accent);
 }
 
 .newPost {
-    flex: 1;
+    flex: 2;
 }

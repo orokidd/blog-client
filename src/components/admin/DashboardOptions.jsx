@@ -63,7 +63,7 @@ export function DashboardOptions({ setPosts, fetchAllPosts }) {
 				</div>
 
 			<div className={styles.newPost}>
-				<Link to="/admin/new-post">New post</Link>
+				<Link to="/admin/new-post" className={styles.newPostLink}>New Post</Link>
 			</div>
 		</div>
 	);

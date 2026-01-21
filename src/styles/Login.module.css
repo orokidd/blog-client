@@ -1,0 +1,111 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 95vh;
+    padding: 40px;
+}
+
+.loginHero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.loginHero img{
+    /* filter: invert(); */
+    aspect-ratio: 1/1;
+    width: 240px;
+    border-radius: 50%;
+}
+
+.heroText {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+
+    font-family: sans-serif;
+    font-size: 24px;
+    color: var(--fg);
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    border-radius: 24px;
+    padding: 72px;
+    /* background-color: var(--bg-alt); */
+}
+
+.loginText {
+    font-size: 60px;
+}
+
+.errorText {
+    color: var(--red);
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.inputGroup {
+    padding-bottom: 8px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+}
+
+.loginInput {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--dark-gray);
+    color: var(--gray);
+    transition: all .3s ease;
+    font-size: 16px;
+}
+
+.loginInput:hover {
+    border-bottom: 1px solid var(--gray);
+}
+
+.loginButton {
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    background-color: var(--accent);
+    color: var(--bg);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.loginButton:hover {
+    background-color: var(--bg-alt);
+    color: var(--fg);
+}
+
+.registerText {
+    font-size: 14px;
+    color: var(--gray)
+}
+
+.registerLink {
+    color: var(--fg);
+    transition: all .3s ease;
+
+}
+
+.registerLink:hover {
+    color: var(--accent);
+}

@@ -1,6 +1,4 @@
-- admin blog list 
-- new post form
+- new/edit post
 - footer
 - login/register
-- delete modal
-- refactor admin dashboard: pake component yg sama dari user tapi pake conditional to check isAdmin
+- delete modal: post comment

@@ -5,14 +5,14 @@
     padding: 40px;
 }
 
-.loginHero {
+.loginHero, .registerHero {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
-.loginHero img{
+.loginHero img, .registerHero img{
     /* filter: invert(); */
     aspect-ratio: 1/1;
     width: 240px;
@@ -41,7 +41,7 @@
     /* background-color: var(--bg-alt); */
 }
 
-.loginText {
+.loginText, .registerText {
     font-size: 60px;
 }
 
@@ -49,7 +49,7 @@
     color: var(--red);
 }
 
-.loginForm {
+.loginForm, .registerForm {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -65,7 +65,7 @@ label {
     font-size: 12px;
 }
 
-.loginInput {
+.loginInput, .registerInput {
     width: 100%;
     background: none;
     border: none;
@@ -76,11 +76,11 @@ label {
     font-size: 16px;
 }
 
-.loginInput:hover {
+.loginInput:hover, .registerInput:hover {
     border-bottom: 1px solid var(--gray);
 }
 
-.loginButton {
+.loginButton, .registerButton {
     width: 100%;
     padding: 14px;
     border-radius: 50px;
@@ -90,22 +90,22 @@ label {
     transition: all .3s ease;
 }
 
-.loginButton:hover {
+.loginButton:hover, .registerButton:hover {
     background-color: var(--bg-alt);
     color: var(--fg);
 }
 
-.registerText {
+.alreadyText {
     font-size: 14px;
     color: var(--gray)
 }
 
-.registerLink {
+.registerLink, .loginLink {
     color: var(--fg);
     transition: all .3s ease;
 
 }
 
-.registerLink:hover {
+.registerLink:hover, .loginLink:hover {
     color: var(--accent);
 }

@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from '../styles/Login.module.css'
-import starSolid from '../assets/star.png'
-import starOrbit from '../assets/orbit.svg'
+import styles from '../styles/Signing.module.css'
 import siteLogo from '../assets/site-icon.jpeg'
 
 export function LoginForm() {
@@ -86,7 +84,7 @@ export function LoginForm() {
 				</form>
 
 				<div className="register-text">
-					<p className={styles.registerText}>Don't have an account? <Link to="/register" className={styles.registerLink}>Sign Up</Link></p>
+					<p className={styles.alreadyText}>Don't have an account? <Link to="/register" className={styles.registerLink}>Sign Up</Link></p>
 				</div>
 			</div>
 		</div>

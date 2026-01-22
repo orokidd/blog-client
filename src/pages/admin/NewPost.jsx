@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import PostForm from "../../components/admin/PostForm.jsx";
 import PostComments from "../../components/admin/PostComments.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
+import { Header } from "../../components/Header.jsx";
 
 export default function AdminPost() {
     const navigate = useNavigate();
@@ -117,6 +118,7 @@ export default function AdminPost() {
 
     return (
         <ProtectedPage>
+            <Header />
             <PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} isEdit={isEdit} loading={loading} />
             <PostComments comments={comments} handleDeleteComment={handleDeleteComment} loading={loading} error={error} isEdit={isEdit} />
         </ProtectedPage>

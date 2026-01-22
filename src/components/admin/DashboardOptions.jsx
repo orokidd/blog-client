@@ -31,7 +31,7 @@ export function DashboardOptions({ setPosts, fetchAllPosts }) {
 			return;
 		}
 
-		const timeout = setTimeout(searchPost, 500);
+		const timeout = setTimeout(searchPost, 500); // Delay search for half a second
 
 		return () => clearTimeout(timeout);
 	}, [searchQuery, sortingOptions]);

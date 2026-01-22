@@ -40,6 +40,8 @@
     line-height: 1.6;
     color: var(--light-gray);
     letter-spacing: .2px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .divider {

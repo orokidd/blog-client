@@ -1,27 +1,28 @@
+import styles from '../../styles/PostForm.module.css'
+
 export default function PostForm({ formData, setFormData, handleSubmit, error, isEdit, loading }) {
 	return (
-		<div className="admin-new-post">
-			<h2>{isEdit ? "Edit Post" : "Create New Post"}</h2>
+		<div className={styles.wrapper}>
+			{/* <h2>{isEdit ? "Edit Post" : "Create New Post"}</h2> */}
 			{error && <div className="error">{error}</div>}
             {loading && <div className="loading">Loading...</div>}
 			
-			<form>
+			<form className={styles.formContainer}>
 				<div>
-					<label>Title:</label>
-					<input type="text" value={formData.title} onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))} />
+					<input className={styles.titleInput} type="text" value={formData.title} placeholder="Title" onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))} />
 				</div>
 
 				<div>
-					<label>Content:</label>
-					<textarea value={formData.content} onChange={(e) => setFormData((prev) => ({ ...prev, content: e.target.value }))} />
+					<textarea className={styles.contentTextarea} value={formData.content} placeholder="Write your blog here" onChange={(e) => setFormData((prev) => ({ ...prev, content: e.target.value }))} />
 				</div>
-				<div className="button-group">
-					<button type="button" onClick={() => handleSubmit(true)}>
-						{isEdit ? "Update & Publish" : "Publish"}
+				
+				<div className={styles.buttonGroup}>
+					<button className={styles.draftButton} type="button" onClick={() => handleSubmit(false)}>
+						Draft
 					</button>
 
-					<button type="button" onClick={() => handleSubmit(false)}>
-						Save as Draft
+					<button className={styles.publishButton} type="button" onClick={() => handleSubmit(true)}>
+						Publish
 					</button>
 				</div>
 			</form>

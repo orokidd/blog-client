@@ -1,7 +1,7 @@
 import { PostItem } from "./PostItem";
 import styles from '../../styles/PostList.module.css'
 
-export default function PostList({posts, deletePost, error, loading}) {
+export default function PostList({posts, deletePost, setShowModal, setPostToDelete, error, loading}) {
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -17,7 +17,7 @@ export default function PostList({posts, deletePost, error, loading}) {
     return (
         <div className={styles.postsContainer}>
             {posts.map((post) => (
-                <PostItem key={post.id} post={post} deletePost={deletePost}/>
+                <PostItem key={post.id} post={post} deletePost={deletePost} setShowModal={setShowModal} setPostToDelete={setPostToDelete}/>
                 ))}
         </div>
     )

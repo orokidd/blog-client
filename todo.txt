@@ -1,4 +1,5 @@
-- new/edit post
 - footer
-- login/register
-- delete modal: post comment
+- delete modal: post comment {
+    modal selalu ada di DOM tapi disabled pke display none, on button click change state modal ke enable, remove disabled className, dan 
+    ganti api link
+}

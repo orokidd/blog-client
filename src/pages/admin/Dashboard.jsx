@@ -4,12 +4,15 @@ import PostList from "../../components/admin/PostList.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
 import { Header } from "../../components/Header.jsx";
 import { DashboardOptions } from "../../components/admin/DashboardOptions.jsx";
+import { DeleteModal } from "../../components/DeleteModal.jsx";
 
 export default function AdminDashboard() {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const { getToken } = useContext(AuthContext);
+    const [showModal, setShowModal] = useState(false)
+    const [postToDelete, setPostToDelete] = useState(0)
 
     async function fetchPosts() {
         try {
@@ -50,11 +53,15 @@ export default function AdminDashboard() {
     useEffect(() => {
         fetchPosts();
     }, []);
+
+    console.log(postToDelete)
+    
     return (
         <ProtectedPage>
             <Header />
             <DashboardOptions setPosts={setPosts} fetchAllPosts={fetchPosts}/>
-            <PostList posts={posts} deletePost={deletePost} error={error} loading={loading}/>
+            <PostList posts={posts} deletePost={deletePost} setShowModal={setShowModal} setPostToDelete={setPostToDelete} error={error} loading={loading}/>
+            <DeleteModal deletePost={deletePost} showModal={showModal} setShowModal={setShowModal} postToDelete={postToDelete} />
         </ProtectedPage>
     )
 }

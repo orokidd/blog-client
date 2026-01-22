@@ -84,3 +84,7 @@ textarea:enabled {
     text-decoration: underline;
     color: var(--accent)
 }
+
+.noComments {
+    color: var(--gray);
+}

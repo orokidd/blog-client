@@ -3,7 +3,6 @@ import styles from '../../styles/PostForm.module.css'
 export default function PostForm({ formData, setFormData, handleSubmit, error, isEdit, loading }) {
 	return (
 		<div className={styles.wrapper}>
-			{/* <h2>{isEdit ? "Edit Post" : "Create New Post"}</h2> */}
 			{error && <div className="error">{error}</div>}
             {loading && <div className="loading">Loading...</div>}
 			
@@ -15,7 +14,7 @@ export default function PostForm({ formData, setFormData, handleSubmit, error, i
 				<div>
 					<textarea className={styles.contentTextarea} value={formData.content} placeholder="Write your blog here" onChange={(e) => setFormData((prev) => ({ ...prev, content: e.target.value }))} />
 				</div>
-				
+
 				<div className={styles.buttonGroup}>
 					<button className={styles.draftButton} type="button" onClick={() => handleSubmit(false)}>
 						Draft

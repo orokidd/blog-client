@@ -4,10 +4,12 @@ import { formatDateSimple } from '../../utils/dateFormatting';
 export function CommentList({ comments, loading, user, handleDeleteComment }) {
   const userId = user ? user.id : null;
 
-  if (loading) return <p>Loading comments...</p>;
-
   return (
     <div className={styles.comments}>
+      <h1>Comments</h1>
+      {comments.length === 0 ? <p className={styles.noComments}>No comments found.</p> : null}
+      {loading ? <p>Loading comments...</p> : null}
+
       {comments.map((comment) => {
         return (
           <div className={styles.comment} key={comment.id}>

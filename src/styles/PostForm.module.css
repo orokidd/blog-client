@@ -62,3 +62,19 @@
 .draftButton:hover {
     filter: brightness(80%)
 }
+
+.backLinkContainer {
+    padding: 40px 40px 0 40px;
+}
+
+.backLink {
+    font-size: 16px;
+    color: var(--gray);
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.backLink:hover {
+    color: var(--accent);
+}

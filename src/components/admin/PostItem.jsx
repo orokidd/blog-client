@@ -7,7 +7,7 @@ export function PostItem({post, deletePost}) {
 	return (
 		<div className={styles.post}>
 			<div className={styles.postDate}>{ formatDate(post.createdAt) }</div>
-			<Link to={`/post/${post.id}`} className="post-link">
+			<Link to={`/admin/posts/${post.id}/edit`} className="post-link">
 				<div className={styles.postTitle}>{post.title}</div>
 			</Link>
 

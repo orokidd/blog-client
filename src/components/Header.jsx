@@ -6,7 +6,7 @@ import styles from '../styles/Header.module.css'
 import { UserCard } from './UserCard';
 
 export function Header() {
-  const { loggedIn, user, logout } = useContext(AuthContext)
+  const { loggedIn } = useContext(AuthContext)
   const [showCard, setShowCard] = useState(false)
 
   function handleClick() {
@@ -29,14 +29,6 @@ export function Header() {
         )}
 
         <UserCard showCard={showCard}/>
-        {/* { loggedIn ? 
-        <div className="logout">
-          <span className="username">{displayRole}, {user.username}</span>
-          <button onClick={logout}>Logout</button>
-        </div> : 
-        <div className="Login">
-          <Link to="/login">Login</Link>
-        </div> } */}
         </div>
     </header>
   );

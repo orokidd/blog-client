@@ -1,11 +1,11 @@
-import styles from '../../styles/PostForm.module.css'
+import styles from '../../styles/PostForm.module.css';
 
-export default function PostForm({ formData, setFormData, handleSubmit, error, isEdit, loading }) {
+export default function PostForm({ formData, setFormData, handleSubmit, error, loading }) {
 	return (
 		<div className={styles.wrapper}>
 			{error && <div className="error">{error}</div>}
-            {loading && <div className="loading">Loading...</div>}
-			
+			{loading && <div className="loading">Loading...</div>}
+
 			<form className={styles.formContainer}>
 				<div>
 					<input className={styles.titleInput} type="text" value={formData.title} placeholder="Title" onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))} />

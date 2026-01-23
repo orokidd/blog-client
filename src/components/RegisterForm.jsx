@@ -1,16 +1,16 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
-import styles from "../styles/Signing.module.css";
-import siteLogo from "../assets/site-icon.jpeg";
+import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import styles from '../styles/Signing.module.css';
+import siteLogo from '../assets/site-icon.jpeg';
 
 export function RegisterForm() {
 	const navigate = useNavigate();
 
 	const [formData, setFormData] = useState({
-		username: "",
-		email: "",
-		password: "",
-		passwordConfirmation: "",
+		username: '',
+		email: '',
+		password: '',
+		passwordConfirmation: '',
 	});
 
 	const [error, setError] = useState(null);
@@ -24,16 +24,16 @@ export function RegisterForm() {
 		setError(null);
 
 		if (formData.password !== formData.passwordConfirmation) {
-			setError("Passwords do not match");
+			setError('Passwords do not match');
 			return;
 		}
 
 		try {
-			const response = await fetch("http://localhost:3000/api/auth/register", {
-				method: "POST",
+			const response = await fetch('http://localhost:3000/api/auth/register', {
+				method: 'POST',
 				body: JSON.stringify(formData),
 				headers: {
-					"Content-Type": "application/json",
+					'Content-Type': 'application/json',
 				},
 			});
 			const data = await response.json();
@@ -42,7 +42,7 @@ export function RegisterForm() {
 			}
 
 			console.log(data.message);
-			navigate("/login");
+			navigate('/login');
 		} catch (err) {
 			setError(err.message);
 			console.log(err);
@@ -90,13 +90,20 @@ export function RegisterForm() {
 
 					<div className="form-options">
 						<div className="button-group">
-							<button type="submit" className={styles.registerButton}>Sign Up</button>
+							<button type="submit" className={styles.registerButton}>
+								Sign Up
+							</button>
 						</div>
 					</div>
 				</form>
 
-                <div className="login-text">
-					<p className={styles.alreadyText}>Already have an account? <Link to="/login" className={styles.loginLink}>Sign In</Link></p>
+				<div className="login-text">
+					<p className={styles.alreadyText}>
+						Already have an account?{' '}
+						<Link to="/login" className={styles.loginLink}>
+							Sign In
+						</Link>
+					</p>
 				</div>
 			</div>
 		</div>

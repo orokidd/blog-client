@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import styles from '../../styles/PostList.module.css'
 
-export function PostOptions({post, deletePost, setShowModal, setPostToDelete}) {
+export function PostOptions({post, setShowModal, setPostToDelete}) {
 	return (
 		<div className={styles.postFooter}>
 			<div>

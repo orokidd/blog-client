@@ -1,9 +1,9 @@
-import { useState } from "react";
-import styles from '../../styles/Comment.module.css'
+import { useState } from 'react';
+import styles from '../../styles/Comment.module.css';
 
 export function CommentForm({ loggedIn, handleNewComment, error }) {
 	const [comment, setComment] = useState({
-		comment: "",
+		comment: '',
 	});
 
 	const handleChange = (e) => {
@@ -13,7 +13,7 @@ export function CommentForm({ loggedIn, handleNewComment, error }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		handleNewComment(comment);
-		setComment({ comment: "" });
+		setComment({ comment: '' });
 	};
 
 	return (
@@ -26,7 +26,9 @@ export function CommentForm({ loggedIn, handleNewComment, error }) {
 
 					<form onSubmit={handleSubmit}>
 						<textarea value={comment.comment} name="comment" onChange={handleChange} placeholder="Add your comment here..." rows="4" cols="50" required></textarea>
-						<button className={styles.submitButton} type="submit">Submit</button>
+						<button className={styles.submitButton} type="submit">
+							Submit
+						</button>
 					</form>
 				</>
 			) : (

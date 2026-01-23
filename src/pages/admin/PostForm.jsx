@@ -8,7 +8,7 @@ import { Header } from "../../components/Header.jsx";
 import { BackButton } from "../../components/admin/BackButton.jsx";
 import { DeleteModal } from "../../components/DeleteModal.jsx";
 
-export default function AdminPost() {
+export default function PostFormPage() {
     const navigate = useNavigate();
     const { postId } = useParams();
     const isEdit = Boolean(postId);
@@ -124,7 +124,7 @@ export default function AdminPost() {
         <ProtectedPage>
             <Header />
             <BackButton />
-            <PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} isEdit={isEdit} loading={loading} />
+            <PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} loading={loading} />
             <CommentList comments={comments} loading={loading} user={user} setCommentToDelete={setCommentToDelete} setShowModal={setShowModal} />
             <DeleteModal toDelete="comment" deleteComment={handleDeleteComment} showModal={showModal} setShowModal={setShowModal} commentToDelete={commentToDelete} />
         </ProtectedPage>

@@ -4,8 +4,6 @@ import styles from '../../styles/PostList.module.css'
 import { useState } from 'react'
 
 export function PostList({ posts }) {
-	
-
 	if (posts.length === 0) {
 		return <div>No posts found</div>;
 	}
@@ -15,8 +13,6 @@ export function PostList({ posts }) {
 			{posts.map((post) => (
 				<PostItem key={post.id} post={post} />
 			))}
-
-			
 		</div>
 	);
 }

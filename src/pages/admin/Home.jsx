@@ -61,7 +61,7 @@ export default function AdminDashboard() {
             <Header />
             <DashboardOptions setPosts={setPosts} fetchAllPosts={fetchPosts}/>
             <PostList posts={posts} deletePost={deletePost} setShowModal={setShowModal} setPostToDelete={setPostToDelete} error={error} loading={loading}/>
-            <DeleteModal toDelete="post"  deletePost={deletePost} showModal={showModal} setShowModal={setShowModal} postToDelete={postToDelete} />
+            <DeleteModal toDelete="post" deletePost={deletePost} showModal={showModal} setShowModal={setShowModal} postToDelete={postToDelete} />
         </ProtectedPage>
     )
 }

@@ -2,20 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import { useParams, useNavigate } from "react-router-dom";
 import PostForm from "../../components/admin/PostForm.jsx";
-import PostComments from "../../components/admin/PostComments.jsx";
+import { CommentList } from "../../components/user/CommentList.jsx";
 import ProtectedPage from "../ProtectedPage.jsx";
 import { Header } from "../../components/Header.jsx";
 import { BackButton } from "../../components/admin/BackButton.jsx";
+import { DeleteModal } from "../../components/DeleteModal.jsx";
 
 export default function AdminPost() {
     const navigate = useNavigate();
     const { postId } = useParams();
     const isEdit = Boolean(postId);
-    const { getToken } = useContext(AuthContext);
+    const { getToken, user } = useContext(AuthContext);
     
     const [comments, setComments] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading]  = useState(true);
+    const [showModal, setShowModal] = useState(false)
+	const [commentToDelete, setCommentToDelete] = useState(0)
     const [formData, setFormData] = useState({
         title: '',
         content: '',
@@ -122,7 +125,8 @@ export default function AdminPost() {
             <Header />
             <BackButton />
             <PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} isEdit={isEdit} loading={loading} />
-            <PostComments comments={comments} handleDeleteComment={handleDeleteComment} loading={loading} error={error} isEdit={isEdit} />
+            <CommentList comments={comments} loading={loading} user={user} setCommentToDelete={setCommentToDelete} setShowModal={setShowModal} />
+            <DeleteModal toDelete="comment" deleteComment={handleDeleteComment} showModal={showModal} setShowModal={setShowModal} commentToDelete={commentToDelete} />
         </ProtectedPage>
     )
 }

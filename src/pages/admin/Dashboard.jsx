@@ -7,10 +7,10 @@ import { DashboardOptions } from "../../components/admin/DashboardOptions.jsx";
 import { DeleteModal } from "../../components/DeleteModal.jsx";
 
 export default function AdminDashboard() {
+    const { getToken } = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const { getToken } = useContext(AuthContext);
     const [showModal, setShowModal] = useState(false)
     const [postToDelete, setPostToDelete] = useState(0)
 
@@ -61,7 +61,7 @@ export default function AdminDashboard() {
             <Header />
             <DashboardOptions setPosts={setPosts} fetchAllPosts={fetchPosts}/>
             <PostList posts={posts} deletePost={deletePost} setShowModal={setShowModal} setPostToDelete={setPostToDelete} error={error} loading={loading}/>
-            <DeleteModal deletePost={deletePost} showModal={showModal} setShowModal={setShowModal} postToDelete={postToDelete} />
+            <DeleteModal toDelete="post"  deletePost={deletePost} showModal={showModal} setShowModal={setShowModal} postToDelete={postToDelete} />
         </ProtectedPage>
     )
 }

@@ -1,9 +1,19 @@
-export default function Error({ errorType }) {
-    const errorMessage = errorType === "not-found" ? "404 - Page Not Found" : "An unexpected error occurred.";
+import styles from "../styles/Error.module.css";
+import { Link } from "react-router";
+import siteLogo from '../assets/site-icon.jpeg'
 
-    return (
-        <div className="error-page">
-            <h1>{errorMessage}</h1>
-        </div>
-    )
+export default function Error({ errorType }) {
+	const errorMessage = errorType === "not-found" ? "Page not found" : "An unexpected error occurred.";
+
+	return (
+		<div className={styles.errorContainer}>
+			<div className={styles.siteIcon}>
+				<Link to="/">
+					<img src={siteLogo} alt="Site logo" />
+				</Link>
+			</div>
+
+			<p className={styles.errorMessage}>{errorMessage}</p>
+		</div>
+	);
 }

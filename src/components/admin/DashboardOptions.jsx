@@ -2,7 +2,7 @@ import styles from "../../styles/DashboardOptions.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
 
-export function DashboardOptions({ setPosts, fetchAllPosts }) {
+export function DashboardOptions({ setPosts }) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [sortingOptions, setSortingOptions] = useState({
 		sort: "createdAt",

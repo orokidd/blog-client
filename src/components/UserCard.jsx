@@ -5,7 +5,6 @@ import styles from '../styles/Header.module.css'
 
 export function UserCard( { showCard }) {
 	const { loggedIn, user, logout } = useContext(AuthContext);
-    const displayRole = user?.role === 'ADMIN' ? 'Admin' : 'User';
 
 	return (
 		<div className={`${styles.userCard} ${showCard ? styles.active : ""}`}>

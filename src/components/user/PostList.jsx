@@ -1,7 +1,6 @@
 import { PostItem } from "./PostItem";
 import { Pagination } from "./Pagination";
 import styles from '../../styles/PostList.module.css'
-import { useState } from 'react'
 
 export function PostList({ posts }) {
 	if (posts.length === 0) {

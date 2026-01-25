@@ -1,5 +1,2 @@
 - footer
-- delete modal: post comment {
-    modal selalu ada di DOM tapi disabled pke display none, on button click change state modal ke enable, remove disabled className, dan 
-    ganti api link
-}
+- move API functions to a context or different API folder

@@ -1,26 +1,44 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  async function fetchLoggedUser() {
+  const getToken = () => {
+    return localStorage.getItem("token");
+  };
+
+  const saveToken = (token) => {
+    localStorage.setItem("token", token);
+  };
+
+  const clearToken = () => {
+    localStorage.removeItem("token");
+  };
+
+  const fetchLoggedUser = useCallback(async () => {
     const token = getToken();
+
     if (!token) {
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/auth/logged-user", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetch(
+        "http://localhost:3000/api/auth/logged-user",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      if (!res.ok) throw new Error("Invalid token");
+      if (!res.ok) {
+        throw new Error("Invalid token");
+      }
 
       const data = await res.json();
       setUser(data);
@@ -31,38 +49,35 @@ export function AuthProvider({ children }) {
     } finally {
       setLoading(false);
     }
-  }
-
-  async function login(token) {
-    saveToken(token);
-    await fetchLoggedUser();
-  }
-
-  function logout() {
-    clearToken();
-    setUser(null);
-  }
-
-  function getToken() {
-    return localStorage.getItem("token");
-  }
-
-  function saveToken(token) {
-    localStorage.setItem("token", token);
-  }
-
-  function clearToken() {
-    localStorage.removeItem("token");
-  }
-
-  // This is what makes it run once on mount   
-  useEffect(() => {
-    fetchLoggedUser();
   }, []);
 
+  const login = async (token) => {
+    saveToken(token);
+    setLoading(true);
+    await fetchLoggedUser();
+  };
+
+  const logout = () => {
+    clearToken();
+    setUser(null);
+  };
+
+  useEffect(() => {
+    fetchLoggedUser();
+  }, [fetchLoggedUser]);
+
   return (
-    <AuthContext value={{ user, loggedIn: Boolean(user), loading, login, logout, getToken }}>
-        {children}
+    <AuthContext
+      value={{
+        user,
+        loggedIn: Boolean(user),
+        loading,
+        login,
+        logout,
+        getToken,
+      }}
+    >
+      {children}
     </AuthContext>
-    )
+  );
 }

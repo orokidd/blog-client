@@ -3,7 +3,7 @@ import { PostOptions } from './PostOptions';
 import styles from '../../styles/PostList.module.css';
 import formatDate from '../../utils/dateFormatting';
 
-export function PostItem({ post, deletePost, setShowModal, setPostToDelete }) {
+export function PostItem({ post, setShowModal, setPostToDelete }) {
 	return (
 		<div className={styles.post}>
 			<div className={styles.postDate}>{formatDate(post.createdAt)}</div>
@@ -13,7 +13,7 @@ export function PostItem({ post, deletePost, setShowModal, setPostToDelete }) {
 
 			<div className={styles.postContent}>{post.content}</div>
 
-			<PostOptions post={post} deletePost={deletePost} setShowModal={setShowModal} setPostToDelete={setPostToDelete} />
+			<PostOptions post={post} setShowModal={setShowModal} setPostToDelete={setPostToDelete} />
 		</div>
 	);
 }

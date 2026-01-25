@@ -1,8 +1,9 @@
-import { Header } from '../../components/Header';
-import { Hero } from '../../components/Hero';
-import { PostList } from '../../components/user/PostList';
-import { useEffect, useState } from 'react';
-import { Pagination } from '../../components/user/Pagination';
+import { Header } from "../../components/Header";
+import { Hero } from "../../components/Hero";
+import { PostList } from "../../components/user/PostList";
+import { useEffect, useState } from "react";
+import { Pagination } from "../../components/user/Pagination";
+import { fetchPublishedPosts } from "../../api/posts";
 
 export default function Home() {
 	const [posts, setPosts] = useState([]);
@@ -15,20 +16,17 @@ export default function Home() {
 	const paginatedItems = posts.slice(start, end);
 	const totalPages = Math.ceil(posts.length / postsPerPage); // 1.23 returns 2
 
-	async function fetchPosts() {
-		try {
-			const res = await fetch('http://localhost:3000/api/posts/published');
-			if (!res.ok) throw new Error('Failed to fetch data');
-
-			const data = await res.json();
-			setPosts(data);
-		} catch (e) {
-			console.log(e.message);
-		}
-	}
-
 	useEffect(() => {
-		fetchPosts();
+		async function loadPosts() {
+			try {
+				const posts = await fetchPublishedPosts();
+				setPosts(posts);
+			} catch (err) {
+				console.error(err.message);
+			}
+		}
+
+		loadPosts();
 	}, []);
 
 	return (

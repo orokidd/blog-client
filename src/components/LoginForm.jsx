@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from '../styles/Signing.module.css'
 import siteLogo from '../assets/site-icon.jpeg'
 
+import { loginUser } from "../api/auth";
+
 export function LoginForm() {
 	const navigate = useNavigate();
 	const { login, user } = useContext(AuthContext);
@@ -24,18 +26,8 @@ export function LoginForm() {
 		e.preventDefault();
 
 		try {
-			const response = await fetch("http://localhost:3000/api/auth/login", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formData),
-			});
-
-			const data = await response.json();
-			if (!response.ok) throw new Error(data.message);
-
-			login(data.token);
+			const loginResponse = await loginUser(formData)
+			login(loginResponse.token);
 		} catch (error) {
 			setError(error.message);
 		}

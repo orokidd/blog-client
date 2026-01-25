@@ -22,6 +22,38 @@ export async function fetchPostContent(postId) {
 	return data;
 }
 
+export async function postNewPost(content, token) {
+	const res = await fetch("http://localhost:3000/api/posts", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${token}`,
+		},
+		body: JSON.stringify(content),
+	});
+
+	if (!res.ok) throw new Error("Failed to create post");
+
+	const data = await res.json();
+	return data;
+}
+
+export async function putEditPost(postId, content, token) {
+	const res = await fetch(`http://localhost:3000/api/posts/${postId}`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${token}`,
+		},
+		body: JSON.stringify(content),
+	});
+
+	if (!res.ok) throw new Error("Failed to edit post");
+
+	const data = await res.json();
+	return data;
+}
+
 export async function deletePost(postId, token) {
 	const res = await fetch(`http://localhost:3000/api/posts/${postId}`, {
 		method: "DELETE",

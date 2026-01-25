@@ -8,8 +8,8 @@ import { Header } from "../../components/Header.jsx";
 import { BackButton } from "../../components/admin/BackButton.jsx";
 import { DeleteModal } from "../../components/DeleteModal.jsx";
 
-import { fetchPostContent } from "../../api/posts.js";
-import { fetchPostComments } from "../../api/comments";
+import { fetchPostContent, postNewPost, putEditPost } from "../../api/posts.js";
+import { fetchPostComments, deleteComment } from "../../api/comments";
 
 export default function PostFormPage() {
 	const navigate = useNavigate();
@@ -28,7 +28,9 @@ export default function PostFormPage() {
 		published: false,
 	});
 
-	const handleSubmit = async (published) => {
+	const token = getToken();
+
+	async function handleSubmit(published) {
 		try {
 			const dataToSend = {
 				title: formData.title,
@@ -36,76 +38,51 @@ export default function PostFormPage() {
 				published: published,
 			};
 
-			const url = isEdit ? `http://localhost:3000/api/posts/${postId}` : "http://localhost:3000/api/posts";
-			const method = isEdit ? "PUT" : "POST";
-
-			const res = await fetch(url, {
-				method: method,
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${getToken()}`,
-				},
-				body: JSON.stringify(dataToSend),
-			});
-			if (!res.ok) throw new Error(isEdit ? "Failed to update post" : "Failed to create post");
-
-			const data = await res.json();
-			console.log(isEdit ? "Post updated:" : "Post created:", data);
+			if (isEdit) {
+				await putEditPost(postId, dataToSend, token);
+			} else {
+				await postNewPost(dataToSend, token);
+			}
 
 			navigate("/admin");
 		} catch (e) {
 			setError(e.message);
 			console.log(e.message);
 		}
-	};
+	}
 
-	const handleDeleteComment = async (commentId) => {
+	async function handleDeleteComment(commentId) {
 		try {
-			const res = await fetch(`http://localhost:3000/api/comments/${commentId}`, {
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${getToken()}`,
-				},
-			});
-
-			if (!res.ok) {
-				return setError("Failed to delete comment");
-			}
-
-			const data = await res.json();
-			console.log(data.message);
+			await deleteComment(commentId, token);
 			setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
 		} catch (error) {
 			console.error("Error deleting comment:", error);
 		}
-	};
+	}
 
 	useEffect(() => {
-        async function loadPostAndComments() {
-            try {
-                const postData = await fetchPostContent(postId);
-                const commentsData = await fetchPostComments(postId);
+		async function loadPostAndComments() {
+			try {
+				const postData = await fetchPostContent(postId);
+				const commentsData = await fetchPostComments(postId);
 
-                setFormData({
+				setFormData({
 					title: postData.title,
 					content: postData.content,
 					published: postData.published,
 				});
 
-                setComments(commentsData);
-            } catch (error) {
-                console.log(error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-		if (isEdit) {
-			loadPostAndComments()
+				setComments(commentsData);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				setLoading(false);
+			}
 		}
 
-		if (!isEdit) {
+		if (isEdit) {
+			loadPostAndComments();
+		} else {
 			setLoading(false);
 		}
 	}, [isEdit, postId]);

@@ -3,6 +3,8 @@ import { useState } from 'react';
 import styles from '../styles/Signing.module.css';
 import siteLogo from '../assets/site-icon.jpeg';
 
+import { registerUser } from '../api/auth';
+
 export function RegisterForm() {
 	const navigate = useNavigate();
 
@@ -29,19 +31,7 @@ export function RegisterForm() {
 		}
 
 		try {
-			const response = await fetch('http://localhost:3000/api/auth/register', {
-				method: 'POST',
-				body: JSON.stringify(formData),
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			});
-			const data = await response.json();
-			if (!response.ok) {
-				throw new Error(data.message);
-			}
-
-			console.log(data.message);
+			await registerUser(formData);
 			navigate('/login');
 		} catch (err) {
 			setError(err.message);

@@ -1,7 +1,7 @@
 import { PostItem } from './PostItem';
 import styles from '../../styles/PostList.module.css';
 
-export default function PostList({ posts, setShowModal, setPostToDelete, error, loading }) {
+export function PostList({ posts, setShowModal, setPostToDelete, error, loading }) {
 	if (loading) {
 		return <div>Loading...</div>;
 	}

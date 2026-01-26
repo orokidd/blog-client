@@ -1,5 +1,4 @@
 import { PostItem } from "./PostItem";
-import { Pagination } from "./Pagination";
 import styles from '../../styles/PostList.module.css'
 
 export function PostList({ posts }) {

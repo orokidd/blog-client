@@ -1,7 +1,6 @@
 import {useContext} from "react";
 import {AuthContext} from "../context/AuthContext.jsx";
 import {Navigate} from "react-router-dom";
-// import NotAllowed from "./NotAllowed.jsx";
 import Error from "./Error.jsx";
 
 export default function ProtectedPage({children}) {

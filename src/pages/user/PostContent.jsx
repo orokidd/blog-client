@@ -1,12 +1,12 @@
+import { useParams } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { useEffect, useState, useContext } from "react";
+
 import { Header } from "../../components/Header";
 import { PostContent } from "../../components/user/PostContent";
 import { CommentForm } from "../../components/user/CommentForm";
 import { CommentList } from "../../components/user/CommentList";
 import { DeleteModal } from "../../components/DeleteModal";
-
-import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 
 import { fetchPostContent } from "../../api/posts";
 import { fetchPostComments, postNewComment, deleteComment } from "../../api/comments";

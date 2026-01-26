@@ -1,6 +1,6 @@
 import styles from '../../styles/PostForm.module.css';
 
-export default function PostForm({ formData, setFormData, handleSubmit, error, loading }) {
+export function PostForm({ formData, setFormData, handleSubmit, error, loading }) {
 	return (
 		<div className={styles.wrapper}>
 			{error && <div className="error">{error}</div>}

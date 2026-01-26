@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.jsx";
-import PostList from "../../components/admin/PostList.jsx";
+import { useContext, useEffect, useState } from "react";
+
 import ProtectedPage from "../ProtectedPage.jsx";
 import { Header } from "../../components/Header.jsx";
-import { DashboardOptions } from "../../components/admin/DashboardOptions.jsx";
+import { PostList } from "../../components/admin/PostList.jsx";
 import { DeleteModal } from "../../components/DeleteModal.jsx";
+import { DashboardOptions } from "../../components/admin/DashboardOptions.jsx";
 
 import { fetchAllPosts, deletePost } from "../../api/posts.js";
 

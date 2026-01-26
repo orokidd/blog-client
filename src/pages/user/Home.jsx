@@ -1,9 +1,10 @@
-import { Header } from "../../components/Header";
 import { Hero } from "../../components/Hero";
+import { Header } from "../../components/Header";
 import { PostList } from "../../components/user/PostList";
-import { useEffect, useState } from "react";
 import { Pagination } from "../../components/user/Pagination";
 import { fetchPublishedPosts } from "../../api/posts";
+
+import { useEffect, useState } from "react";
 
 export default function Home() {
 	const [posts, setPosts] = useState([]);

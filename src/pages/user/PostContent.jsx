@@ -32,14 +32,14 @@ export default function BlogPost() {
 		}
 	}
 
-	const handleDeleteComment = async (commentId) => {
+	async function handleDeleteComment(commentId) {
 		try {
 			await deleteComment(commentId, token);
 			setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
 		} catch (error) {
 			console.error("Error deleting comment:", error);
 		}
-	};
+	}
 
 	useEffect(() => {
 		async function loadPostAndComments() {

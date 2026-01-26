@@ -22,8 +22,21 @@ export async function loginUser(userData) {
 		body: JSON.stringify(userData),
 	});
 
-    if (!res.ok) throw new Error("Failed to login");
+	if (!res.ok) throw new Error("Failed to login");
 
 	const data = await res.json();
-    return data;
+	return data;
+}
+
+export async function getUserData(token) {
+	const res = await fetch("http://localhost:3000/api/auth/logged-user", {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+
+	if (!res.ok) throw new Error("Invalid token");
+
+	const data = await res.json();
+	return data;
 }

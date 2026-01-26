@@ -1,84 +1,81 @@
-import { createContext, useEffect, useState, useCallback } from "react";
+import { createContext, useEffect, useState } from "react";
+import { getUserData } from "../api/auth";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+	const [user, setUser] = useState(null);
+	const [loading, setLoading] = useState(true);
 
-  const getToken = () => {
-    return localStorage.getItem("token");
-  };
+	function getToken() {
+		return localStorage.getItem("token");
+	}
 
-  const saveToken = (token) => {
-    localStorage.setItem("token", token);
-  };
+	function saveToken(token) {
+		localStorage.setItem("token", token);
+	}
 
-  const clearToken = () => {
-    localStorage.removeItem("token");
-  };
+	function clearToken() {
+		localStorage.removeItem("token");
+	}
 
-  const fetchLoggedUser = useCallback(async () => {
-    const token = getToken();
+	async function login(token) {
+		saveToken(token);
+		setLoading(true);
 
-    if (!token) {
-      setLoading(false);
-      return;
-    }
+		try {
+			const userData = await getUserData(token);
+			setUser(userData);
+		} catch (err) {
+			console.error(err);
+			clearToken();
+			setUser(null);
+		} finally {
+			setLoading(false);
+		}
+	}
 
-    try {
-      const res = await fetch(
-        "http://localhost:3000/api/auth/logged-user",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+	function logout() {
+		clearToken();
+		setUser(null);
+	}
 
-      if (!res.ok) {
-        throw new Error("Invalid token");
-      }
+	useEffect(() => {
+		async function loadUser() {
+			const token = getToken();
 
-      const data = await res.json();
-      setUser(data);
-    } catch (err) {
-      console.error(err);
-      clearToken();
-      setUser(null);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+			if (!token) {
+				setLoading(false);
+				return;
+			}
 
-  const login = async (token) => {
-    saveToken(token);
-    setLoading(true);
-    await fetchLoggedUser();
-  };
+			try {
+				const userData = await getUserData(token);
+				setUser(userData);
+			} catch (err) {
+				console.error(err);
+				clearToken();
+				setUser(null);
+			} finally {
+				setLoading(false);
+			}
+		}
 
-  const logout = () => {
-    clearToken();
-    setUser(null);
-  };
+		loadUser();
+	}, []);
 
-  useEffect(() => {
-    fetchLoggedUser();
-  }, [fetchLoggedUser]);
-
-  return (
-    <AuthContext
-      value={{
-        user,
-        loggedIn: Boolean(user),
-        loading,
-        login,
-        logout,
-        getToken,
-      }}
-    >
-      {children}
-    </AuthContext>
-  );
+	return (
+		<AuthContext
+			value={{
+				user,
+				loggedIn: Boolean(user),
+				loading,
+				login,
+				logout,
+				getToken,
+			}}>
+			{children}
+		</AuthContext>
+	);
 }

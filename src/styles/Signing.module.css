@@ -1,111 +1,146 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 95vh;
-    padding: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: 95vh;
+	padding: 40px;
 }
 
-.loginHero, .registerHero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.loginHero,
+.registerHero {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
-.loginHero img, .registerHero img{
-    /* filter: invert(); */
-    aspect-ratio: 1/1;
-    width: 240px;
-    border-radius: 50%;
+.loginHero img,
+.registerHero img {
+	/* filter: invert(); */
+	aspect-ratio: 1/1;
+	width: 240px;
+	border-radius: 50%;
 }
 
 .heroText {
-    position: absolute;
-    left: 1px;
-    top: 1px;
+	position: absolute;
+	left: 1px;
+	top: 1px;
 
-    font-family: sans-serif;
-    font-size: 24px;
-    color: var(--fg);
+	font-family: sans-serif;
+	font-size: 24px;
+	color: var(--fg);
 }
 
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 18px;
 
-    border-radius: 24px;
-    padding: 72px;
-    /* background-color: var(--bg-alt); */
+	border-radius: 24px;
+	padding: 72px;
+	/* background-color: var(--bg-alt); */
 }
 
-.loginText, .registerText {
-    font-size: 60px;
+.loginText,
+.registerText {
+	font-size: 60px;
 }
 
 .errorText {
-    color: var(--red);
+	color: var(--red);
 }
 
-.loginForm, .registerForm {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+.loginForm,
+.registerForm {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
 }
 
 .inputGroup {
-    padding-bottom: 8px;
+	padding-bottom: 8px;
 }
 
 label {
-    display: block;
-    font-size: 12px;
+	display: block;
+	font-size: 12px;
 }
 
-.loginInput, .registerInput {
-    width: 100%;
-    background: none;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid var(--dark-gray);
-    color: var(--gray);
-    transition: all .3s ease;
-    font-size: 16px;
+.loginInput,
+.registerInput {
+	width: 100%;
+	background: none;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid var(--dark-gray);
+	color: var(--gray);
+	transition: all 0.3s ease;
+	font-size: 16px;
 }
 
-.loginInput:hover, .registerInput:hover {
-    border-bottom: 1px solid var(--gray);
+.loginInput:hover,
+.registerInput:hover {
+	border-bottom: 1px solid var(--gray);
 }
 
-.loginButton, .registerButton {
-    width: 100%;
-    padding: 14px;
-    border-radius: 50px;
-    background-color: var(--accent);
-    color: var(--bg);
-    cursor: pointer;
-    transition: all .3s ease;
+.loginButton,
+.registerButton {
+	width: 100%;
+	padding: 14px;
+	border-radius: 50px;
+	background-color: var(--accent);
+	color: var(--bg);
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
-.loginButton:hover, .registerButton:hover {
-    background-color: var(--bg-alt);
-    color: var(--fg);
+.loginButton:hover,
+.registerButton:hover {
+	background-color: var(--bg-alt);
+	color: var(--fg);
 }
 
 .alreadyText {
-    font-size: 14px;
-    color: var(--gray)
+	font-size: 14px;
+	color: var(--gray);
 }
 
-.registerLink, .loginLink {
-    color: var(--fg);
-    transition: all .3s ease;
-
+.registerLink,
+.loginLink {
+	color: var(--fg);
+	transition: all 0.3s ease;
 }
 
-.registerLink:hover, .loginLink:hover {
-    color: var(--accent);
+.registerLink:hover,
+.loginLink:hover {
+	color: var(--accent);
+}
+
+@media screen and (max-width: 840px) {
+	.wrapper {
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.formContainer {
+		padding: 72px 0 72px 72px;
+		/* background-color: var(--bg-alt); */
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.wrapper {
+		grid-template-columns: 1fr;
+		padding: 40px;
+	}
+
+	.formContainer {
+		padding: 0;
+	}
+
+	.heroText {
+		display: none;
+	}
 }

@@ -45,7 +45,7 @@ export function RegisterForm() {
 				<Link to="/">
 					<p className={styles.heroText}>Orokidd.</p>
 				</Link>
-				<img src={siteLogo} alt="" />
+				<Link to='/'><img src={siteLogo} alt="" /></Link>
 			</div>
 
 			<div className={styles.formContainer}>

@@ -88,3 +88,13 @@ textarea:enabled {
 .noComments {
     color: var(--gray);
 }
+
+@media screen and (max-width: 460px) {
+	.formContainer {
+        padding: 0 20px 20px 20px;
+	}
+
+    .comments {
+        padding: 0 20px;
+    }
+}

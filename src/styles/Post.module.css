@@ -1,51 +1,57 @@
 .postContainer {
-    padding: 40px;
+	padding: 40px;
 }
 
 .homeLink {
-    font-size: 16px;
-    color: var(--gray);
-    font-weight: 500;
-    margin-bottom: 24px;
-    display: inline-block;
-    transition: all 0.3s ease;
+	font-size: 16px;
+	color: var(--gray);
+	font-weight: 500;
+	margin-bottom: 24px;
+	display: inline-block;
+	transition: all 0.3s ease;
 }
 
 .homeLink:hover {
-    color: var(--accent);
+	color: var(--accent);
 }
 
 .postTitle {
-    font-size: 48px;
-    margin: 10px 0;
-    font-weight: 400;
-    color: var(--fg);
-    letter-spacing: .2px;
-    transition: all 0.3s ease;
+	font-size: 48px;
+	margin: 10px 0;
+	font-weight: 400;
+	color: var(--fg);
+	letter-spacing: 0.2px;
+	transition: all 0.3s ease;
 }
 
 .postTitle:hover {
-    color: var(--accent);
+	color: var(--accent);
 }
 
 .postDate {
-    font-size: 16px;
-    color: var(--gray);
-    margin-bottom: 32px;
+	font-size: 16px;
+	color: var(--gray);
+	margin-bottom: 32px;
 }
 
 .postContent {
-    font-size: 18px;
-    color: var(--fg);
-    line-height: 1.6;
-    color: var(--light-gray);
-    letter-spacing: .2px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+	font-size: 18px;
+	color: var(--fg);
+	line-height: 1.6;
+	color: var(--light-gray);
+	letter-spacing: 0.2px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 
 .divider {
-    height: 1px;
-    background-color: var(--darker-gray);
-    margin: 40px 0;
+	height: 1px;
+	background-color: var(--darker-gray);
+	margin: 40px 0;
+}
+
+@media screen and (max-width: 460px) {
+	.postContainer {
+		padding: 20px;
+	}
 }

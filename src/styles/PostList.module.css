@@ -116,9 +116,12 @@
 	.postsContainer {
 		grid-template-columns: 1fr;
 	}
-
-	.paginations {
-		justify-content: center;
-		grid-column: 1 / 1;
-	}
 }
+
+@media screen and (max-width: 460px) {
+	.post {
+	padding: 12px;
+}
+}
+
+

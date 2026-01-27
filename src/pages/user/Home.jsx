@@ -1,5 +1,6 @@
 import { Hero } from "../../components/Hero";
 import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 import { PostList } from "../../components/user/PostList";
 import { Pagination } from "../../components/user/Pagination";
 import { fetchPublishedPosts } from "../../api/posts";
@@ -36,6 +37,7 @@ export default function Home() {
 			<Hero />
 			<PostList posts={paginatedItems} />
 			<Pagination currentPage={currentPage} totalPages={totalPages} buttonHandler={setCurrentPage} />
+			<Footer />
 		</>
 	);
 }

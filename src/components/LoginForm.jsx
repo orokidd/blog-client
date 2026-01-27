@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from '../styles/Signing.module.css'
 import siteLogo from '../assets/site-icon.jpeg'
 
 import { loginUser } from "../api/auth";
 
 export function LoginForm() {
-	const navigate = useNavigate();
-	const { login, user } = useContext(AuthContext);
+	const { login } = useContext(AuthContext);
+
 	const [error, setError] = useState(null);
 	const [formData, setFormData] = useState({
 		username: "",
@@ -32,14 +32,6 @@ export function LoginForm() {
 			setError(error.message);
 		}
 	};
-
-	useEffect(() => {
-		if (user && user.role === "ADMIN") {
-			navigate("/admin");
-		} else if (user) {
-			navigate("/");
-		}
-	}, [user, navigate]);
 
 	return (
 		<div className={styles.wrapper}>

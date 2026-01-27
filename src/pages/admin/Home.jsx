@@ -11,6 +11,7 @@ import { fetchAllPosts, deletePost } from "../../api/posts.js";
 
 export default function AdminDashboard() {
 	const { getToken } = useContext(AuthContext);
+	
 	const [posts, setPosts] = useState([]);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(true);

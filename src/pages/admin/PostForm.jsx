@@ -18,9 +18,9 @@ export default function PostFormPage() {
 	const isEdit = Boolean(postId);
 	const { getToken, user } = useContext(AuthContext);
 
-	const [comments, setComments] = useState([]);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const [comments, setComments] = useState([]);
 	const [showModal, setShowModal] = useState(false);
 	const [commentToDelete, setCommentToDelete] = useState(0);
 	const [formData, setFormData] = useState({

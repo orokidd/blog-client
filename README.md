@@ -1,6 +1,6 @@
 <h1 align="center">
   Blog Post 
-  <h4 align="center">Front-end for Blog Post application built with React, Node, Express, PostgreSQL, Prisma ORM, and JWT Authentication</h4>
+  <h4 align="center">Front-end for Blog Post application built with React, Express, PostgreSQL, Prisma ORM, and JWT Authentication</h4>
 </h1>
 
 <div align="center">
@@ -23,7 +23,11 @@ The live site can be viewed [here](https://orokidd-blog-client.vercel.app/).
 
 ## 📼 Demo
 
-https://github.com/user-attachments/assets/8f12be94-c431-4471-a3bf-b386d6a6337d
+
+
+https://github.com/user-attachments/assets/f692f694-36a9-4f03-9622-d88b561f1c95
+
+
 
 ## 📝 Project Description
 

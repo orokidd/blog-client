@@ -1,16 +1,28 @@
-# React + Vite
+<h1 align="center">
+  Blog Post 
+  <h4 align="center">Front-end for Blog Post application built with React, Node, Express, PostgreSQL, Prisma ORM, and JWT Authentication</h4>
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB)
+[![Node.js](https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white)](#)
+[![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?logo=express&logoColor=%2361DAFB)](#)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%23316192.svg?logo=postgresql&logoColor=white)](#)
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white)](#)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## React Compiler
+<img src="./public/project-img.png" alt="Screenshot of project page" align="center" style="width: 100%;">
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Live Site
 
-## Expanding the ESLint configuration
+The live site can be viewed [here](https://orokidd-blog-client.vercel.app/).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📼 Demo
+
+https://github.com/user-attachments/assets/97cd9c8f-0ce1-4a80-a04a-dd6be5259f3f
+
+## 📝 Project Description
+
+The [project specification](https://www.theodinproject.com/lessons/node-path-nodejs-blog-api) describes the general instructions in doing the project. This project primarily served as practice for understanding React, Node, Express, PostgreSQL, Prisma ORM, and JWT for authentication.

@@ -66,15 +66,7 @@ export function AuthProvider({ children }) {
 	}, []);
 
 	return (
-		<AuthContext
-			value={{
-				user,
-				loggedIn: Boolean(user),
-				loading,
-				login,
-				logout,
-				getToken,
-			}}>
+		<AuthContext value={{ user, loggedIn: Boolean(user), loading, login, logout, getToken }}>
 			{children}
 		</AuthContext>
 	);

@@ -1,6 +1,7 @@
-import styles from "../../styles/DashboardOptions.module.css";
-import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import { sortPosts } from "../../api/posts";
+import styles from "../../styles/DashboardOptions.module.css";
 
 export function DashboardOptions({ setPosts }) {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -19,19 +20,17 @@ export function DashboardOptions({ setPosts }) {
 	}
 
 	useEffect(() => {
-		async function searchPost() {
-			const res = await fetch(`http://localhost:3000/api/posts/search?title=${searchQuery}&sort=${sortingOptions.sort}&order=${sortingOptions.order}`);
-			if (!res.ok) throw new Error("Failed to fetch data");
-			const data = await res.json();
-			setPosts(data);
+		async function loadPosts() {
+			const sortedPosts = await sortPosts(searchQuery, sortingOptions.sort, sortingOptions.order)
+			setPosts(sortedPosts);
 		}
 
 		if (searchQuery.trim() === "") {
-			searchPost();
+			loadPosts();
 			return;
 		}
 
-		const timeout = setTimeout(searchPost, 500); // Delay search for half a second
+		const timeout = setTimeout(loadPosts, 500); // Delay search for half a second
 
 		return () => clearTimeout(timeout);
 	}, [searchQuery, sortingOptions, setPosts]);
@@ -53,6 +52,7 @@ export function DashboardOptions({ setPosts }) {
 					</option>
 					<option value="createdAt">Date Created</option>
 					<option value="title">Title</option>
+					<option value="published">Published</option>
 				</select>
 
 				<button type="button" className={styles.sortButton} onClick={handleSortButton}>

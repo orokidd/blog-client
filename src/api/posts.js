@@ -68,3 +68,11 @@ export async function deletePost(postId, token) {
 	const data = await res.json();
 	console.log("Post deleted successfully:", data);
 }
+
+export async function sortPosts(searchQuery, sortBy, order) {
+	const res = await fetch(`http://localhost:3000/api/posts/search?title=${searchQuery}&sort=${sortBy}&order=${order}`);
+	if (!res.ok) throw new Error("Failed to fetch data");
+	const data = await res.json();
+
+	return data
+}

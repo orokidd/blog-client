@@ -13,7 +13,9 @@
 
 </div>
 
-<img src="./public/project-img.png" alt="Screenshot of project page" align="center" style="width: 100%;">
+<img src="./public/project_img.png" alt="Screenshot of project page" align="center" style="width: 100%;">
+<img src="./public/project2_img.png" alt="Screenshot of project page" align="center" style="width: 100%;">
+<img src="./public/project3_img.png" alt="Screenshot of project page" align="center" style="width: 100%;">
 
 ## 🚀 Live Site
 
@@ -21,7 +23,7 @@ The live site can be viewed [here](https://orokidd-blog-client.vercel.app/).
 
 ## 📼 Demo
 
-https://github.com/user-attachments/assets/97cd9c8f-0ce1-4a80-a04a-dd6be5259f3f
+https://github.com/user-attachments/assets/8f12be94-c431-4471-a3bf-b386d6a6337d
 
 ## 📝 Project Description
 

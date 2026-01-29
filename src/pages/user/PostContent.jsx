@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useEffect, useState, useContext } from "react";
 
 import { Header } from "../../components/Header";
+import { Loading } from "../../components/Loading";
 import { PostContent } from "../../components/user/PostContent";
 import { CommentForm } from "../../components/user/CommentForm";
 import { CommentList } from "../../components/user/CommentList";
@@ -59,12 +60,16 @@ export default function BlogPost() {
 		loadPostAndComments();
 	}, [postId]);
 
+	if (loading) return (
+		<Loading />
+	)
+	
 	return (
 		<>
 			<Header />
 			<PostContent post={post} />
 			<CommentForm loggedIn={loggedIn} handleNewComment={handleNewComment} />
-			<CommentList comments={comments} loading={loading} user={user} setCommentToDelete={setCommentToDelete} setShowModal={setShowModal} />
+			<CommentList comments={comments} user={user} setCommentToDelete={setCommentToDelete} setShowModal={setShowModal} />
 			<DeleteModal toDelete="comment" deleteComment={handleDeleteComment} showModal={showModal} setShowModal={setShowModal} commentToDelete={commentToDelete} />
 		</>
 	);

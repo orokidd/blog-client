@@ -1,11 +1,7 @@
 import { PostItem } from './PostItem';
 import styles from '../../styles/PostList.module.css';
 
-export function PostList({ posts, setShowModal, setPostToDelete, error, loading }) {
-	if (loading) {
-		return <div>Loading...</div>;
-	}
-
+export function PostList({ posts, setShowModal, setPostToDelete, error }) {
 	if (posts.length === 0) {
 		return <div>No posts found.</div>;
 	}

@@ -1,7 +1,7 @@
 import styles from '../../styles/Comment.module.css';
 import { formatDateSimple } from '../../utils/dateFormatting';
 
-export function CommentList({ comments, loading, user, setShowModal, setCommentToDelete }) {
+export function CommentList({ comments, user, setShowModal, setCommentToDelete }) {
 	const userId = user ? user.id : null;
 	const isAdmin = user?.role === 'ADMIN';
 
@@ -9,7 +9,6 @@ export function CommentList({ comments, loading, user, setShowModal, setCommentT
 		<div className={styles.comments}>
 			<h1>Comments</h1>
 			{comments.length === 0 ? <p className={styles.noComments}>No comments found.</p> : null}
-			{loading ? <p>Loading comments...</p> : null}
 
 			{comments.map((comment) => {
 				return (

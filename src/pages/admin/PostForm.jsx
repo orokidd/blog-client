@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 
 import ProtectedPage from "../ProtectedPage.jsx";
 import { Header } from "../../components/Header.jsx";
+import { Loading } from "../../components/Loading.jsx";
 import { PostForm } from "../../components/admin/PostForm.jsx";
 import { BackButton } from "../../components/admin/BackButton.jsx";
 import { DeleteModal } from "../../components/DeleteModal.jsx";
@@ -88,12 +89,14 @@ export default function PostFormPage() {
 		}
 	}, [isEdit, postId]);
 
+	if (loading) return <Loading />;
+	
 	return (
 		<ProtectedPage>
 			<Header />
 			<BackButton />
-			<PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} loading={loading} />
-			<CommentList comments={comments} loading={loading} user={user} setCommentToDelete={setCommentToDelete} setShowModal={setShowModal} />
+			<PostForm formData={formData} setFormData={setFormData} handleSubmit={handleSubmit} error={error} />
+			<CommentList comments={comments} user={user} setCommentToDelete={setCommentToDelete} setShowModal={setShowModal} />
 			<DeleteModal toDelete="comment" deleteComment={handleDeleteComment} showModal={showModal} setShowModal={setShowModal} commentToDelete={commentToDelete} />
 		</ProtectedPage>
 	);

@@ -1,11 +1,13 @@
-import { LoginForm } from "../components/LoginForm";
 import { useContext, useEffect } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+
+import { Loading } from "../components/Loading";
+import { LoginForm } from "../components/LoginForm";
 
 export default function Login() {
 	const navigate = useNavigate();
-	const { user, loading } = useContext(AuthContext);
+	const { user } = useContext(AuthContext);
 
 	useEffect(() => {
 		if (user && user.role === "ADMIN") {
@@ -13,9 +15,9 @@ export default function Login() {
 		} else if (user) {
 			navigate("/");
 		}
-	}, [user, loading, navigate]);
+	}, [user, navigate]);
 
-	if (user || loading) return <div className="loading">Loading ...</div>;
+	if (user) return <Loading />;
 
 	return (
 		<>

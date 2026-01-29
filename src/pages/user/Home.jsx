@@ -1,6 +1,7 @@
 import { Hero } from "../../components/Hero";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { Loading } from "../../components/Loading";
 import { PostList } from "../../components/user/PostList";
 import { Pagination } from "../../components/user/Pagination";
 import { fetchPublishedPosts } from "../../api/posts";
@@ -11,6 +12,7 @@ export default function Home() {
 	const [posts, setPosts] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const postsPerPage = 6;
+	const [loading, setLoading] = useState(true)
 
 	const start = (currentPage - 1) * postsPerPage;
 	const end = start + postsPerPage;
@@ -25,11 +27,17 @@ export default function Home() {
 				setPosts(posts);
 			} catch (err) {
 				console.error(err.message);
+			} finally {
+				setLoading(false)
 			}
 		}
 
 		loadPosts();
 	}, []);
+
+	if (loading) return (
+		<Loading />
+	)
 
 	return (
 		<>

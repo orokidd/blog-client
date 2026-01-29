@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL
+
 export async function fetchPostComments(postId) {
-	const res = await fetch(`http://localhost:3000/api/comments/post/${postId}`);
+	const res = await fetch(`${API_URL}/comments/post/${postId}`);
 	if (!res.ok) throw new Error("Failed to fetch data");
 
 	const data = await res.json();
@@ -7,7 +9,7 @@ export async function fetchPostComments(postId) {
 }
 
 export async function postNewComment(comment, postId, token) {
-	const res = await fetch(`http://localhost:3000/api/comments/post/${postId}`, {
+	const res = await fetch(`${API_URL}/comments/post/${postId}`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -24,7 +26,7 @@ export async function postNewComment(comment, postId, token) {
 }
 
 export async function deleteComment(commentId, token) {
-	const res = await fetch(`http://localhost:3000/api/comments/${commentId}`, {
+	const res = await fetch(`${API_URL}/comments/${commentId}`, {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",

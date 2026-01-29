@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL
+
 export async function registerUser(userData) {
-	const res = await fetch("http://localhost:3000/api/auth/register", {
+	const res = await fetch(`${API_URL}/auth/register`, {
 		method: "POST",
 		body: JSON.stringify(userData),
 		headers: {
@@ -14,7 +16,7 @@ export async function registerUser(userData) {
 }
 
 export async function loginUser(userData) {
-	const res = await fetch("http://localhost:3000/api/auth/login", {
+	const res = await fetch(`${API_URL}/auth/login`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -29,7 +31,7 @@ export async function loginUser(userData) {
 }
 
 export async function getUserData(token) {
-	const res = await fetch("http://localhost:3000/api/auth/logged-user", {
+	const res = await fetch(`${API_URL}/auth/logged-user`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},

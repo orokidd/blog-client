@@ -23,11 +23,7 @@ The live site can be viewed [here](https://orokidd-blog-client.vercel.app/).
 
 ## 📼 Demo
 
-
-
-https://github.com/user-attachments/assets/f692f694-36a9-4f03-9622-d88b561f1c95
-
-
+https://github.com/user-attachments/assets/70f56eaf-aba4-48ce-94d6-cb6f14fc4f3e
 
 ## 📝 Project Description
 
